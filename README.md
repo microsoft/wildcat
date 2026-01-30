@@ -1,3 +1,7 @@
-# Repository setup required :wave:
-    
-Please visit the website URL :point_right: for this repository to complete the setup of this repository and configure access controls.
+# Replication Code
+
+To recreate the BigGAN image generation experiment, please visit `examples/biggan`.
+
+To recreate the T2T-ViT ImageNet classification experiment, please visit `examples/t2t`.
+
+To recreate the KV cache compression experiments, please visit `examples/kvcache`.

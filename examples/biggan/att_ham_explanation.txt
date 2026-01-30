@@ -1,0 +1,3596 @@
+Graph Count: 3
+Graph Break Count: 2
+Op Count: 2942
+Break Reasons:
+Ops per Graph:
+  Ops 1:
+    <function get_user_object_from_id at 0x7f8911368540>
+  Ops 2:
+    <built-in function truediv>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function mul>
+    <built-in function pow>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function gt>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method where of type object at 0x7f8a7921df60>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in method arange of type object at 0x7f8a7921df60>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function pow>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function gt>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method where of type object at 0x7f8a7921df60>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in method arange of type object at 0x7f8a7921df60>
+    <built-in method argmin of type object at 0x7f8a7921df60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in method sqrt of type object at 0x7f8a7921df60>
+    <built-in function itruediv>
+    <built-in function getitem>
+    <built-in method sqrt of type object at 0x7f8a7921df60>
+    <built-in function imul>
+    <built-in function mul>
+    <built-in method empty of type object at 0x7f8a7921df60>
+    <built-in method empty_like of type object at 0x7f8a7921df60>
+    <built-in method empty of type object at 0x7f8a7921df60>
+    <built-in function truediv>
+    <built-in method ones of type object at 0x7f8a7921df60>
+    <built-in method empty of type object at 0x7f8a7921df60>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function neg>
+    <built-in method log of type object at 0x7f8a7921df60>
+    <built-in function sub>
+    <built-in method argmax of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <built-in function sub>
+    <built-in method exp of type object at 0x7f8a7921df60>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function setitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function getitem>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function isub>
+    <built-in function add>
+    <built-in function sub>
+    <built-in function add>
+    <built-in function imul>
+    <built-in function linalg_solve_ex>
+    <built-in function getitem>
+    <built-in function sub>
+    <function einsum at 0x7f891e87dc60>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function sub>
+    <function einsum at 0x7f891e87dc60>
+    <function einsum at 0x7f891e87dc60>
+    <built-in function itruediv>
+    <built-in function iadd>
+  Ops 3:
+    <function get_user_object_from_id at 0x7f8911368540>
+Out Guards:
+  Guard 1:
+    Name: ''
+    Source: global
+    Create Function: TORCH_FUNCTION_STATE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 2:
+    Name: ''
+    Source: shape_env
+    Create Function: SHAPE_ENV
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 3:
+    Name: "G['starts']"
+    Source: global
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['SEQUENCE_LENGTH']
+    Code List: ["len(G['starts']) == 5"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x7f8a8172d080; to 'type' at 0x55da63e09c40 (dict)>
+  Guard 4:
+    Name: "G['starts']['attention-matrix']"
+    Source: global
+    Create Function: ID_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['starts']['attention-matrix'], 140223875587040)"]
+    Object Weakref: <weakref at 0x7f88532c3dd0; to 'Event' at 0x7f886a4b1be0>
+    Guarded Class Weakref: <weakref at 0x7f89bfdd84f0; to 'type' at 0x55da69c65490 (Event)>
+  Guard 5:
+    Name: ''
+    Source: global
+    Create Function: DEFAULT_DEVICE
+    Guard Types: ['DEFAULT_DEVICE']
+    Code List: ['utils_device.CURRENT_DEVICE == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 6:
+    Name: "G['starts']"
+    Source: global
+    Create Function: DICT_CONST_KEYS
+    Guard Types: ['DICT_CONST_KEYS']
+    Code List: ["list(G['starts'].keys()) == ['generator', 'embed', 'attention', 'attention-matrix', 'model']"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x7f8a8172d080; to 'type' at 0x55da63e09c40 (dict)>
+  Guard 7:
+    Name: ''
+    Source: global
+    Create Function: GRAD_MODE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 8:
+    Name: "L['layer_name']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['layer_name'] == 'attention-matrix'"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x7f8a81753f60; to 'type' at 0x55da63dff180 (str)>
+  Guard 9:
+    Name: ''
+    Source: global
+    Create Function: DETERMINISTIC_ALGORITHMS
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 10:
+    Name: "L['queries'].pow"
+    Source: local
+    Create Function: HASATTR
+    Guard Types: ['HASATTR']
+    Code List: ["hasattr(L['queries'], 'pow')"]
+    Object Weakref: <weakref at 0x7f88531e9030; to 'Tensor' at 0x7f886a1c6580>
+    Guarded Class Weakref: <weakref at 0x7f89f6bcd670; to 'torch._C._TensorMeta' at 0x55da69ac6560 (Tensor)>
+  Guard 11:
+    Name: "G['torch'].arange"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].arange, 140232847566832)"]
+    Object Weakref: <weakref at 0x7f88521649f0; to 'builtin_function_or_method' at 0x7f8a8110a7f0>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 12:
+    Name: "G['lambert_w_circ_exp']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 13:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 14:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 15:
+    Name: "G['compress_attention']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 16:
+    Name: "G['lambert_w_circ_exp'].__defaults__[0]"
+    Source: global
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["G['lambert_w_circ_exp'].__defaults__[0] == 5"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x7f8a81749c10; to 'type' at 0x55da63e0a420 (int)>
+  Guard 17:
+    Name: "G['rpc']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 18:
+    Name: "L['values'].amax"
+    Source: local
+    Create Function: HASATTR
+    Guard Types: ['HASATTR']
+    Code List: ["hasattr(L['values'], 'amax')"]
+    Object Weakref: <weakref at 0x7f885315db20; to 'Tensor' at 0x7f885810f750>
+    Guarded Class Weakref: <weakref at 0x7f89f6bcd670; to 'torch._C._TensorMeta' at 0x55da69ac6560 (Tensor)>
+  Guard 19:
+    Name: "L['scale']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['scale'] == 1.0"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x7f8a8172e390; to 'type' at 0x55da63e0ca20 (float)>
+  Guard 20:
+    Name: "G['nys']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 21:
+    Name: "G['torch'].where"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].where, 140232847718128)"]
+    Object Weakref: <weakref at 0x7f8852164630; to 'builtin_function_or_method' at 0x7f8a8112f6f0>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 22:
+    Name: ''
+    Source: global
+    Create Function: DETERMINISTIC_ALGORITHMS
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 23:
+    Name: "G['sqrt']"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['sqrt'], 140232853272384)"]
+    Object Weakref: <weakref at 0x7f885301e0c0; to 'builtin_function_or_method' at 0x7f8a8167b740>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 24:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 25:
+    Name: "G['torch'].sqrt"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].sqrt, 140232847671840)"]
+    Object Weakref: <weakref at 0x7f8852164360; to 'builtin_function_or_method' at 0x7f8a81124220>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 26:
+    Name: "G['gsn_kernel']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 27:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder']"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__import_cmpd_attn_dot_parameter_finder'], 140226641672160)"]
+    Object Weakref: <weakref at 0x7f8852165da0; to 'module' at 0x7f890f2a37e0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 28:
+    Name: "G['torch'].int64"
+    Source: global
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["G['torch'].int64 == torch.int64"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x7f8a810f7920; to 'type' at 0x7f8a79219dc0 (dtype)>
+  Guard 29:
+    Name: "G['torch'].empty_like"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].empty_like, 140232847707808)"]
+    Object Weakref: <weakref at 0x7f8852164f90; to 'builtin_function_or_method' at 0x7f8a8112cea0>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 30:
+    Name: "L['self']"
+    Source: local
+    Create Function: TYPE_MATCH
+    Guard Types: ['TYPE_MATCH']
+    Code List: ["___check_type_id(L['self'], 94396628298896)"]
+    Object Weakref: <weakref at 0x7f885301e7a0; to 'CompressedAttention' at 0x7f886b4f93d0>
+    Guarded Class Weakref: <weakref at 0x7f890f2a3970; to 'type' at 0x55da6d7f6c90 (CompressedAttention)>
+  Guard 31:
+    Name: "G['torch'].exp"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].exp, 140232847708208)"]
+    Object Weakref: <weakref at 0x7f885301dbc0; to 'builtin_function_or_method' at 0x7f8a8112d030>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 32:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 33:
+    Name: "G['torch'].log"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].log, 140232847711488)"]
+    Object Weakref: <weakref at 0x7f885301ee30; to 'builtin_function_or_method' at 0x7f8a8112dd00>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 34:
+    Name: "G['nys'].__defaults__[0]"
+    Source: global
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['nys'].__defaults__[0], 94396466968672)"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x7f8a81762e30; to 'type' at 0x55da63e1b880 (bool)>
+  Guard 35:
+    Name: "G['torch'].linalg.solve_ex"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].linalg.solve_ex, 140230526122032)"]
+    Object Weakref: <weakref at 0x7f8852165030; to 'builtin_function_or_method' at 0x7f89f6b23830>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 36:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 37:
+    Name: "L['queries']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['queries'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x7f88531e9030; to 'Tensor' at 0x7f886a1c6580>
+    Guarded Class Weakref: <weakref at 0x7f89f6bcd670; to 'torch._C._TensorMeta' at 0x55da69ac6560 (Tensor)>
+  Guard 38:
+    Name: "G['torch'].argmin"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].argmin, 140232847643712)"]
+    Object Weakref: <weakref at 0x7f8852164bd0; to 'builtin_function_or_method' at 0x7f8a8111d440>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 39:
+    Name: "L['keys']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['keys'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x7f88531e9490; to 'Tensor' at 0x7f886a1c6030>
+    Guarded Class Weakref: <weakref at 0x7f89f6bcd670; to 'torch._C._TensorMeta' at 0x55da69ac6560 (Tensor)>
+  Guard 40:
+    Name: "G['torch'].linalg"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].linalg, 140226897435744)"]
+    Object Weakref: <weakref at 0x7f8852164e50; to 'module' at 0x7f891e68dc60>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 41:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 42:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 43:
+    Name: "L['keys'].pow"
+    Source: local
+    Create Function: HASATTR
+    Guard Types: ['HASATTR']
+    Code List: ["hasattr(L['keys'], 'pow')"]
+    Object Weakref: <weakref at 0x7f88531e9490; to 'Tensor' at 0x7f886a1c6030>
+    Guarded Class Weakref: <weakref at 0x7f89f6bcd670; to 'torch._C._TensorMeta' at 0x55da69ac6560 (Tensor)>
+  Guard 44:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 45:
+    Name: "G['torch'].empty"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].empty, 140232847707728)"]
+    Object Weakref: <weakref at 0x7f88521644a0; to 'builtin_function_or_method' at 0x7f8a8112ce50>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 46:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 47:
+    Name: "G['__builtins_dict___2']['len']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___2']['len'], 140232854408064)"]
+    Object Weakref: <weakref at 0x7f8852165800; to 'builtin_function_or_method' at 0x7f8a81790b80>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 48:
+    Name: "G['torch'].argmax"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].argmax, 140232847687600)"]
+    Object Weakref: <weakref at 0x7f8852164a90; to 'builtin_function_or_method' at 0x7f8a81127fb0>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 49:
+    Name: "G['torch']"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'], 140232851579552)"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 50:
+    Name: ''
+    Source: global
+    Create Function: GRAD_MODE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 51:
+    Name: "G['torch'].einsum"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].einsum, 140226899467360)"]
+    Object Weakref: <weakref at 0x7f8852164d10; to 'function' at 0x7f891e87dc60>
+    Guarded Class Weakref: <weakref at 0x7f8a8172f060; to 'type' at 0x55da63e0c060 (function)>
+  Guard 52:
+    Name: "G['__builtins_dict___2']['range']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___2']['range'], 94396466876736)"]
+    Object Weakref: <weakref at 0x7f8a8174bec0; to 'type' at 0x55da63e05140>
+    Guarded Class Weakref: <weakref at 0x7f8a816f8c20; to 'type' at 0x55da63e03060 (type)>
+  Guard 53:
+    Name: "G['attn_fn']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 54:
+    Name: "G['torch'].ones"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].ones, 140232847609344)"]
+    Object Weakref: <weakref at 0x7f88531edd50; to 'builtin_function_or_method' at 0x7f8a81114e00>
+    Guarded Class Weakref: <weakref at 0x7f8a817184a0; to 'type' at 0x55da63e06880 (builtin_function_or_method)>
+  Guard 55:
+    Name: "L['values'].mean"
+    Source: local
+    Create Function: HASATTR
+    Guard Types: ['HASATTR']
+    Code List: ["hasattr(L['values'], 'mean')"]
+    Object Weakref: <weakref at 0x7f885315db20; to 'Tensor' at 0x7f885810f750>
+    Guarded Class Weakref: <weakref at 0x7f89f6bcd670; to 'torch._C._TensorMeta' at 0x55da69ac6560 (Tensor)>
+  Guard 56:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 57:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 58:
+    Name: "L['values']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['values'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x7f885315db20; to 'Tensor' at 0x7f885810f750>
+    Guarded Class Weakref: <weakref at 0x7f89f6bcd670; to 'torch._C._TensorMeta' at 0x55da69ac6560 (Tensor)>
+  Guard 59:
+    Name: "L['self'].q_kernel"
+    Source: local_unspecialized_nn_module
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(L['self'].q_kernel, 94396466968672)"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x7f8a81762e30; to 'type' at 0x55da63e1b880 (bool)>
+  Guard 60:
+    Name: ''
+    Source: global
+    Create Function: TORCH_FUNCTION_STATE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 61:
+    Name: ''
+    Source: shape_env
+    Create Function: SHAPE_ENV
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 62:
+    Name: "L['self'].r"
+    Source: local_unspecialized_nn_module
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['self'].r == 128"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x7f8a81749c10; to 'type' at 0x55da63e0a420 (int)>
+  Guard 63:
+    Name: "L['values'].amin"
+    Source: local
+    Create Function: HASATTR
+    Guard Types: ['HASATTR']
+    Code List: ["hasattr(L['values'], 'amin')"]
+    Object Weakref: <weakref at 0x7f885315db20; to 'Tensor' at 0x7f885810f750>
+    Guarded Class Weakref: <weakref at 0x7f89f6bcd670; to 'torch._C._TensorMeta' at 0x55da69ac6560 (Tensor)>
+  Guard 64:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 65:
+    Name: ''
+    Source: global
+    Create Function: DEFAULT_DEVICE
+    Guard Types: ['DEFAULT_DEVICE']
+    Code List: ['utils_device.CURRENT_DEVICE == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 66:
+    Name: "G['find_kernel_temperature']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 67:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 68:
+    Name: "G['__import_cmpd_attn_dot_compressKV']"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__import_cmpd_attn_dot_compressKV'], 140226641667840)"]
+    Object Weakref: <weakref at 0x7f8852165bc0; to 'module' at 0x7f890f2a2700>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 69:
+    Name: "L['values'].pow"
+    Source: local
+    Create Function: HASATTR
+    Guard Types: ['HASATTR']
+    Code List: ["hasattr(L['values'], 'pow')"]
+    Object Weakref: <weakref at 0x7f885315db20; to 'Tensor' at 0x7f885810f750>
+    Guarded Class Weakref: <weakref at 0x7f89f6bcd670; to 'torch._C._TensorMeta' at 0x55da69ac6560 (Tensor)>
+  Guard 70:
+    Name: "G['__import_cmpd_attn_dot_parameter_finder'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_cmpd_attn_dot_parameter_finder'].torch"]
+    Object Weakref: <weakref at 0x7f885301ddf0; to 'module' at 0x7f8a814de2a0>
+    Guarded Class Weakref: <weakref at 0x7f8a8174b010; to 'type' at 0x55da63e06340 (module)>
+  Guard 71:
+    Name: "G['align_shapes']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 72:
+    Name: ''
+    Source: global
+    Create Function: TORCH_FUNCTION_STATE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 73:
+    Name: ''
+    Source: shape_env
+    Create Function: SHAPE_ENV
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 74:
+    Name: "G['ends']['attention-matrix']"
+    Source: global
+    Create Function: ID_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['ends']['attention-matrix'], 140223875588608)"]
+    Object Weakref: <weakref at 0x7f88531329d0; to 'Event' at 0x7f886a4b2200>
+    Guarded Class Weakref: <weakref at 0x7f89bfdd84f0; to 'type' at 0x55da69c65490 (Event)>
+  Guard 75:
+    Name: "G['ends']"
+    Source: global
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['SEQUENCE_LENGTH']
+    Code List: ["len(G['ends']) == 5"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x7f8a8172d080; to 'type' at 0x55da63e09c40 (dict)>
+  Guard 76:
+    Name: ''
+    Source: global
+    Create Function: DEFAULT_DEVICE
+    Guard Types: ['DEFAULT_DEVICE']
+    Code List: ['utils_device.CURRENT_DEVICE == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 77:
+    Name: ''
+    Source: global
+    Create Function: GRAD_MODE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 78:
+    Name: "L['layer_name']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['layer_name'] == 'attention-matrix'"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x7f8a81753f60; to 'type' at 0x55da63dff180 (str)>
+  Guard 79:
+    Name: "G['ends']"
+    Source: global
+    Create Function: DICT_CONST_KEYS
+    Guard Types: ['DICT_CONST_KEYS']
+    Code List: ["list(G['ends'].keys()) == ['generator', 'embed', 'attention', 'attention-matrix', 'model']"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x7f8a8172d080; to 'type' at 0x55da63e09c40 (dict)>
+  Guard 80:
+    Name: ''
+    Source: global
+    Create Function: DETERMINISTIC_ALGORITHMS
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+Compile Times: TorchDynamo compilation metrics:
+Function                        Runtimes (s)
+------------------------------  ----------------------
+_compile.compile_inner          0.0135, 6.1909, 0.0073
+OutputGraph.call_user_compiler  0.0002, 0.0022, 0.0002
