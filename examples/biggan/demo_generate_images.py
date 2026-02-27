@@ -35,7 +35,7 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_name",type=str, default='biggan-deep-512')
     parser.add_argument("--num_classes",type=int, default=1000)
-    parser.add_argument("--data_per_class",type=int, default=1)
+    parser.add_argument("--data_per_class",type=int, default=5)
     parser.add_argument("--seed",type=int, default=1)
     parser.add_argument("--num_splits", "-ns",type=int, default=10)
     parser.add_argument("--batch_size",type=int, default=32)
