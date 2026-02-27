@@ -73,11 +73,6 @@ class WildCat(nn.Module):
         max_val = values.amax(dim = -2, keepdim=True)
         min_val = values.amin(dim = -2, keepdim=True)
 
-        # Shift values to minimize the max norm of the recentered values
-        # Note that vbar can be integrated exactly into the attention output later
-        # vbar = (max_val+min_val)/2 #values.mean(dim = -2, keepdim=True)
-        # values = values - vbar
-
         # Recenter keys.
         kbar = keys.mean(dim = -2, keepdim=True)
         keys = keys - kbar
@@ -96,7 +91,6 @@ class WildCat(nn.Module):
         core_keys, core_values, core_one = compress_kv(keys, values, scale, bin_r)
         # # Reconstruction of attention output.
         # # TODO: Test other implementation, e.g. via flash-attention
-
         out = weighted_attention(queries = queries,
                                  core_keys = core_keys,
                                  core_values = core_values,
@@ -106,25 +100,6 @@ class WildCat(nn.Module):
                                  max_val = max_val
                                  )
         
-
-        # # Incorporate temperature scaling for queries
-        # QK = scale*torch.einsum("...te, ...re -> ...tr", queries, core_keys)
-        # QK -= QK.amax(-1, keepdim=True)
-        # QK = QK.exp()
-
-        # QK1 = torch.einsum("...tr, ...r -> ...t", QK, core_one).unsqueeze(-1)
-
-        # # Multiply by Nystrom-weighted values
-        # # TODO: Determine reasonable cut-off threshold
-        # eps = 1e-20
-        # out = torch.where(QK1 > eps, torch.einsum("...tr, ...rd -> ...td", QK, core_values) / QK1, 0.)
-
-        # # # Add in impact of value centers
-        # # out = out + vbar 
-
-        # # Exact attention output should always lie in the range of the original
-        # # values, so enforce this constraint
-        # out = out.clamp(min = min_val, max = max_val)
         out = out.view(*queries_shape[:-1], D)
 
         return out
