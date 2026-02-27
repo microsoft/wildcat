@@ -6,6 +6,7 @@ import math
 
 from cmpd_attn.transformer_utils import align_shapes
 from cmpd_attn.math_utils import lambert_w_circ_exp
+from cmpd_attn.compressKV import compress_kv
 
 from cmpd_attn.tr_update_kernel import update_kernel_triton
     
@@ -94,140 +95,142 @@ class WildCat(nn.Module):
 
         # We compress chunks of the dimension independently and recombine later.
         # The effective coreset size by the two chunk methods is C*(r//C)^F
-        if F > 1:
-            assert E % F == 0, "Model dimension must be divisible by dim_bins"
-            assert F <= 8, "Coreset sizes grow exponentially with dim_bins, please set dim_bins <= 8"
-            # Divide key-value pairs into bins along feature dimension
-            keys = keys.reshape(B*C, N//C, E//F, F).permute(0, 3, 1, 2).reshape(B*C*F, N//C, E//F)
-            #queries = queries.reshape(B, M, E//F, F).permute(0, 3, 1, 2).reshape(B*F, M, E//F)
+        # if F > 1:
+        #     assert E % F == 0, "Model dimension must be divisible by dim_bins"
+        #     assert F <= 8, "Coreset sizes grow exponentially with dim_bins, please set dim_bins <= 8"
+        #     # Divide key-value pairs into bins along feature dimension
+        #     keys = keys.reshape(B*C, N//C, E//F, F).permute(0, 3, 1, 2).reshape(B*C*F, N//C, E//F)
+        #     #queries = queries.reshape(B, M, E//F, F).permute(0, 3, 1, 2).reshape(B*F, M, E//F)
             
 
-        # Preprocessing of the keys and queries
-        # Determine rescaling of keys to be used during compression
+        # # Preprocessing of the keys and queries
+        # # Determine rescaling of keys to be used during compression
 
-        # Shape (B*C*F, N//C)
-        sqd_knorm = keys.square().sum(dim=-1)
+        # # Shape (B*C*F, N//C)
+        # sqd_knorm = keys.square().sum(dim=-1)
 
-        # Shape (B, F)
-        # TODO: Consider reshaped queries for F > 1. Changes which dimension is reduced over.
-        if F > 1:
-            queries = queries.reshape(B, M, E//F, F)
-            q_scale = queries.square().sum(dim = -2).sqrt().amax(dim = -2)
-            q_scale = q_scale.reshape(B, 1, F, 1).expand(B, C, F, 1).reshape(B*C*F, 1)
-            queries = queries.reshape(B, M, E)
-        else:
-            q_scale = queries.square().sum(dim = -1).sqrt().amax(dim = -1)
-            q_scale = q_scale.reshape(B, 1).expand(B, C).reshape(B*C, 1)
+        # # Shape (B, F)
+        # # TODO: Consider reshaped queries for F > 1. Changes which dimension is reduced over.
+        # if F > 1:
+        #     queries = queries.reshape(B, M, E//F, F)
+        #     q_scale = queries.square().sum(dim = -2).sqrt().amax(dim = -2)
+        #     q_scale = q_scale.reshape(B, 1, F, 1).expand(B, C, F, 1).reshape(B*C*F, 1)
+        #     queries = queries.reshape(B, M, E)
+        # else:
+        #     q_scale = queries.square().sum(dim = -1).sqrt().amax(dim = -1)
+        #     q_scale = q_scale.reshape(B, 1).expand(B, C).reshape(B*C, 1)
         
-        # Shape (B*C*F, 1)
-        k_scale = sqd_knorm.sqrt().amax(dim = -1, keepdim=True)
+        # # Shape (B*C*F, 1)
+        # k_scale = sqd_knorm.sqrt().amax(dim = -1, keepdim=True)
 
-        # Shape (B*C*F, 1)
-        tau = find_kernel_temperature(
-            scale = scale,
-            q_scale=q_scale,
-            k_scale=k_scale,
-            n = N,
-            phi = None
-        )
+        # # Shape (B*C*F, 1)
+        # tau = find_kernel_temperature(
+        #     scale = scale,
+        #     q_scale=q_scale,
+        #     k_scale=k_scale,
+        #     n = N,
+        #     phi = None
+        # )
 
-        key_multiplier = sqrt(scale) / tau
-        keys = keys * key_multiplier.unsqueeze(-1)
-        sqd_knorm = sqd_knorm * (key_multiplier**2)
+        # key_multiplier = sqrt(scale) / tau
+        # keys = keys * key_multiplier.unsqueeze(-1)
+        # sqd_knorm = sqd_knorm * (key_multiplier**2)
 
-        # Compression of keys and values
-        # Outputs kernel_inv and kernel_core computed from Gaussian kernel
-        coreset, kernel_inv, kernel_core = rp_nystrom(
-            keys=keys,
-            sqd_knorm=sqd_knorm,
-            r=bin_r,
-            mode=self.mode,
-        )
+        # # Compression of keys and values
+        # # Outputs kernel_inv and kernel_core computed from Gaussian kernel
+        # coreset, kernel_inv, kernel_core = rp_nystrom(
+        #     keys=keys,
+        #     sqd_knorm=sqd_knorm,
+        #     r=bin_r,
+        #     mode=self.mode,
+        # )
 
-        # Select compressed keys:
-        # Shape (B*C*F, r//C, E//F)
-        core_keys = keys.gather(-2, coreset.unsqueeze(-1).expand(*coreset.shape, E//F))
-        # Undo rescaling of keys
-        core_keys /= key_multiplier.unsqueeze(-1)
-        core_sqd_knorms = sqd_knorm.gather(-1, coreset)
+        # # Select compressed keys:
+        # # Shape (B*C*F, r//C, E//F)
+        # core_keys = keys.gather(-2, coreset.unsqueeze(-1).expand(*coreset.shape, E//F))
+        # # Undo rescaling of keys
+        # core_keys /= key_multiplier.unsqueeze(-1)
+        # core_sqd_knorms = sqd_knorm.gather(-1, coreset)
 
-        # Compute Nystrom weights for Gaussian kernel
-        W = torch.einsum("...rs, ...sl -> ...rl", kernel_inv, kernel_core)
+        # # Compute Nystrom weights for Gaussian kernel
+        # W = torch.einsum("...rs, ...sl -> ...rl", kernel_inv, kernel_core)
 
-        if F > 1:
-            # Rescaling does not need to be undone for norms, as they become part of weights determined by Nystrom
-            codes = torch.arange(bin_r**F, device=keys.device)
-            powers = (bin_r ** torch.arange(F, device=keys.device))
-            grid_ids = (codes[:, None] // powers[None, :]) % bin_r
-            grid_ids = grid_ids.T # F, r_bin^F
+        # if F > 1:
+        #     # Rescaling does not need to be undone for norms, as they become part of weights determined by Nystrom
+        #     codes = torch.arange(bin_r**F, device=keys.device)
+        #     powers = (bin_r ** torch.arange(F, device=keys.device))
+        #     grid_ids = (codes[:, None] // powers[None, :]) % bin_r
+        #     grid_ids = grid_ids.T # F, r_bin^F
 
-            # Take all combinations of coresets along feature dimensions
-            core_keys = core_keys.reshape(B*C, F, bin_r, E//F)
-            core_keys = core_keys.gather(-2, grid_ids[None, ..., None].expand(B*C, F, bin_r**F, E//F))
-            core_keys = core_keys.permute(0, 2, 1, 3).reshape(B, C*bin_r**F, E)
+        #     # Take all combinations of coresets along feature dimensions
+        #     core_keys = core_keys.reshape(B*C, F, bin_r, E//F)
+        #     core_keys = core_keys.gather(-2, grid_ids[None, ..., None].expand(B*C, F, bin_r**F, E//F))
+        #     core_keys = core_keys.permute(0, 2, 1, 3).reshape(B, C*bin_r**F, E)
 
-            core_sqd_knorms = core_sqd_knorms.reshape(B*C, F, bin_r)
-            core_sqd_knorms = core_sqd_knorms.gather(-1, grid_ids[None, ...].expand(B*C, F, bin_r**F)).sum(dim=-2)
+        #     core_sqd_knorms = core_sqd_knorms.reshape(B*C, F, bin_r)
+        #     core_sqd_knorms = core_sqd_knorms.gather(-1, grid_ids[None, ...].expand(B*C, F, bin_r**F)).sum(dim=-2)
 
-        else:
-            # Fold bin dimension back into sequence dimension
-            core_keys = core_keys.reshape(B, self.r, E)
+        # else:
+        #     # Fold bin dimension back into sequence dimension
+        #     core_keys = core_keys.reshape(B, self.r, E)
 
-        # Compute compressed values:
-        if F > 1:
-            W = W.reshape(B*C, F, bin_r, N//C)
-            W = W.gather(-2, grid_ids[None, ..., None].expand(B*C, F, bin_r**F, N//C))
-            W = W.prod(-3)
+        # # Compute compressed values:
+        # if F > 1:
+        #     W = W.reshape(B*C, F, bin_r, N//C)
+        #     W = W.gather(-2, grid_ids[None, ..., None].expand(B*C, F, bin_r**F, N//C))
+        #     W = W.prod(-3)
 
-            # Multiply by scaling terms
-            # sqd_knorm has shape (B*C*F, N//C)
-            # core_sqd_knorms has shape (B, C, (r//C)^F)
-            sqd_knorm = sqd_knorm.reshape(B*C, F, N//C).sum(dim=-2)
+        #     # Multiply by scaling terms
+        #     # sqd_knorm has shape (B*C*F, N//C)
+        #     # core_sqd_knorms has shape (B, C, (r//C)^F)
+        #     sqd_knorm = sqd_knorm.reshape(B*C, F, N//C).sum(dim=-2)
 
-            # (B, C, (r//C)^F, N//C)
-            scaling = -core_sqd_knorms.unsqueeze(-1) + sqd_knorm.unsqueeze(-2)
-            scaling = scaling - scaling.amax((-1,-2), keepdim=True)
-            W = W * torch.exp(scaling / 2.)
+        #     # (B, C, (r//C)^F, N//C)
+        #     scaling = -core_sqd_knorms.unsqueeze(-1) + sqd_knorm.unsqueeze(-2)
+        #     scaling = scaling - scaling.amax((-1,-2), keepdim=True)
+        #     W = W * torch.exp(scaling / 2.)
 
-            # (B, C*(r//C)^F, D)
-            compressed_values = torch.einsum("...rn, ...nd -> ...rd", W, values).reshape(B, C*bin_r**F, D)
+        #     # (B, C*(r//C)^F, D)
+        #     compressed_values = torch.einsum("...rn, ...nd -> ...rd", W, values).reshape(B, C*bin_r**F, D)
 
-            # (B, C*(r//C)^F)
-            compressed_one = W.sum(dim=-1).reshape(B, C*bin_r**F)
+        #     # (B, C*(r//C)^F)
+        #     compressed_one = W.sum(dim=-1).reshape(B, C*bin_r**F)
 
-        else:
-            # Shapes: 
-            #   kernel_core (B*C, r//C, N//C)
-            #   kernel_inv (B*C, r//C, r//C)
-            #   values (B*C, N//C, D)
-            # Reduce over full sequence length first to reduce flop count
-            scaling = -core_sqd_knorms.unsqueeze(-1) + sqd_knorm.unsqueeze(-2) 
-            scaling = scaling - scaling.amax((-1,-2), keepdim=True)
-            W = W * torch.exp(scaling / 2.)
-            # compressed_values = torch.einsum("...rn, ...nd -> ...rd", kernel_core, values)
-            # compressed_one = kernel_core.sum(dim=-1)
+        # else:
+        #     # Shapes: 
+        #     #   kernel_core (B*C, r//C, N//C)
+        #     #   kernel_inv (B*C, r//C, r//C)
+        #     #   values (B*C, N//C, D)
+        #     # Reduce over full sequence length first to reduce flop count
+        #     scaling = -core_sqd_knorms.unsqueeze(-1) + sqd_knorm.unsqueeze(-2) 
+        #     scaling = scaling - scaling.amax((-1,-2), keepdim=True)
+        #     W = W * torch.exp(scaling / 2.)
+        #     # compressed_values = torch.einsum("...rn, ...nd -> ...rd", kernel_core, values)
+        #     # compressed_one = kernel_core.sum(dim=-1)
 
-            # Apply kernel inverse to get Nystrom weighting
-            compressed_values = torch.einsum("...rl, ...ld -> ...rd", W, values)
-            compressed_one = W.sum(dim=-1)
+        #     # Apply kernel inverse to get Nystrom weighting
+        #     compressed_values = torch.einsum("...rl, ...ld -> ...rd", W, values)
+        #     compressed_one = W.sum(dim=-1)
 
-            compressed_values = compressed_values.reshape(B, self.r, D)
-            compressed_one = compressed_one.reshape(B, self.r)
+        #     compressed_values = compressed_values.reshape(B, self.r, D)
+        #     compressed_one = compressed_one.reshape(B, self.r)
 
-        # Reconstruction of attention output.
-        # TODO: Test other implementation, e.g. via flash-attention
+        # # Reconstruction of attention output.
+        # # TODO: Test other implementation, e.g. via flash-attention
+
+        core_keys, core_values, core_one = compress_kv(keys, values, scale, bin_r)
 
         # Incorporate temperature scaling for queries
         QK = scale*torch.einsum("...te, ...re -> ...tr", queries, core_keys)
         QK -= QK.amax(-1, keepdim=True)
         QK = QK.exp()
 
-        QK1 = torch.einsum("...tr, ...r -> ...t", QK, compressed_one).unsqueeze(-1)
+        QK1 = torch.einsum("...tr, ...r -> ...t", QK, core_one).unsqueeze(-1)
 
         # Multiply by Nystrom-weighted values
         # TODO: Determine reasonable cut-off threshold
         eps = 1e-20
-        out = torch.where(QK1 > eps, torch.einsum("...tr, ...rd -> ...td", QK, compressed_values) / QK1, 0.)
+        out = torch.where(QK1 > eps, torch.einsum("...tr, ...rd -> ...td", QK, core_values) / QK1, 0.)
 
         # Add in impact of value centers
         out = out + vbar 

@@ -6,16 +6,12 @@ import random
 
 from cmpd_attn.wildcat import rp_nystrom, find_kernel_temperature
 
-def compress(
-        module: torch.nn.Module | None,
-        hidden_states: torch.Tensor | None,
-        keys: torch.Tensor,
-        values: torch.Tensor,
-        attentions: torch.Tensor,
-        r: int | float,
-        kwargs: dict
+def compress_kv(
+        keys,
+        values,
+        scale,
+        r
 ):
-    
     keys_shape = keys.shape
     values_shape = values.shape
 
@@ -24,8 +20,6 @@ def compress(
 
     E = keys.shape[-1]
     n = keys.shape[-2]
-
-    scale = module.scaling
 
     sqd_knorm = keys.square().sum(dim=-1)
 
@@ -78,6 +72,21 @@ def compress(
     K1 = K1.reshape(*keys_shape[:-2], r, 1)
 
     return core_keys, KV, K1
+    
+
+def compress(
+        module: torch.nn.Module | None,
+        hidden_states: torch.Tensor | None,
+        keys: torch.Tensor,
+        values: torch.Tensor,
+        attentions: torch.Tensor,
+        r: int | float,
+        kwargs: dict
+):
+
+    scale = module.scaling
+
+    return compress_kv(keys, values, scale, r)
 
 
     
