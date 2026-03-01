@@ -30,6 +30,7 @@ yes | conda create -n scatter python=3.12 cuda-nvcc cuda-cudart cuda-toolkit pip
 conda activate scatter
 # Install torch version that matches local cuda version (13.0)
 pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu130
+# For older cuda drivers run: pip install torch torchvision torchaudio
 # Install scatterbrain
 git clone https://github.com/idiap/fast-transformers.git
 # update this line (https://github.com/idiap/fast-transformers/blob/2ad36b97e64cb93862937bd21fcc9568d989561f/setup.py#L81) for Nvidia Ampere GPUs
