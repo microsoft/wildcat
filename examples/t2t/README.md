@@ -73,6 +73,28 @@ pip install git+https://github.com/microsoft/thinformer.git
 pip install -e ../../../wildcat
 ```
 
+## Alternative environment creation
+```bash
+# Create conda environment
+conda create -n t2t python=3.12
+conda activate t2t
+# IMPORTANT: Pin setuptools to avoid pkg_resources removal (>=82 breaks Lightning 1.x)
+pip install "setuptools<82"
+# Install Python dependencies of T2T-ViT
+# For compatability with torch requires updated timm version
+pip install timm pyyaml
+# Install Python dependencies of the imagenet.py moddule
+pip install einops lightning lightning-bolts
+# Install other needed Python packages
+pip install numpy matplotlib pandas tabulate
+# Replace outdated helpers file in installed timm package
+cp helpers.py $CONDA_PREFIX/lib/python3.12/site-packages/timm/models/layers/helpers.py
+# Install thinformer
+pip install git+https://github.com/microsoft/thinformer.git
+# Install compressed attention
+pip install -e ../../../wildcat
+```
+
 ## Results
 
 To test wildcat, only, please run:
