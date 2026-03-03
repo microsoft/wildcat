@@ -51,7 +51,7 @@ pip install numpy matplotlib pandas tabulate
 pip install git+https://github.com/microsoft/thinformer.git
 # Install wildcat
 pip install -e ../../../wildcat
-# Restrict setuptools to ensure pkg_resources
+# Restrict setuptools to ensure pkg_resources exists
 pip install "setuptools<82"
 ```
 
