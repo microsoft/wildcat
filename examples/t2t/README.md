@@ -28,50 +28,35 @@ the compiler CUDA version (reported by `nvcc --version`), and PyTorch CUDA versi
 yes | conda create -n scatter python=3.12 cuda-nvcc cuda-cudart cuda-toolkit pip -c nvidia
 # Activate environment
 conda activate scatter
-# Install torch version that matches local cuda version (13.0)
+# Install torch version that matches local cuda version 
+## For cuda version 13.0 use
 pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu130
+## For cuda version 12.4 use 
+#pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 # For older cuda drivers run: pip install torch torchvision torchaudio
 # Install scatterbrain
 git clone https://github.com/idiap/fast-transformers.git
 # update this line (https://github.com/idiap/fast-transformers/blob/2ad36b97e64cb93862937bd21fcc9568d989561f/setup.py#L81) for Nvidia Ampere GPUs
 sed -i 's/return \["-arch=compute_60"\]/return ["-arch=compute_80"]/' fast-transformers/setup.py
-pip install fast-transformers/
+pip install --no-build-isolation fast-transformers/
 # Install Python dependencies of T2T-ViT
 pip install "timm==0.3.4" pyyaml
+# Replace outdated helpers file in installed timm package
+cp helpers.py $CONDA_PREFIX/lib/python3.12/site-packages/timm/models/layers/helpers.py
 # Install Python dependencies of run_imagenet
 pip install einops lightning lightning-bolts
 # Install other needed Python packages used by experiment
 pip install numpy matplotlib pandas tabulate
-# Replace outdated helpers file in installed timm package
-cp helpers.py $CONDA_PREFIX/lib/python3.12/site-packages/timm/models/layers/helpers.py
 # Install thinformer
 pip install git+https://github.com/microsoft/thinformer.git
 # Install wildcat
 pip install -e ../../../wildcat
+# Restrict setuptools to ensure pkg_resources
+pip install "setuptools<82"
 ```
 
 > \[!TIP\]
 > On Nvidia Hopper GPUs (e.g., H100), `sed -i 's/return \["-arch=compute_60"\]/return ["-arch=compute_80"]/' fast-transformers/setup.py` should be replaced by `sed -i 's/return \["-arch=compute_60"\]/return ["-arch=compute_90"]/' fast-transformers/setup.py`.
-
-### Prepare conda environment with dependencies, excluding Scatterbrain
-
-```bash
-# Create conda environment
-conda create -n thinformer python=3.12
-conda activate thinformer
-# Install Python dependencies of T2T-ViT
-pip install "timm==0.3.4" pyyaml
-# Install Python dependencies of the imagenet.py moddule
-pip install einops lightning lightning-bolts
-# Install other needed Python packages
-pip install numpy matplotlib pandas tabulate
-# Replace outdated helpers file in installed timm package
-cp helpers.py $CONDA_PREFIX/lib/python3.12/site-packages/timm/models/layers/helpers.py
-# Install thinformer
-pip install git+https://github.com/microsoft/thinformer.git
-# Install compressed attention
-pip install -e ../../../wildcat
-```
 
 ## Alternative environment creation
 ```bash
