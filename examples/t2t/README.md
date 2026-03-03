@@ -42,7 +42,7 @@ pip install --no-build-isolation fast-transformers/
 # Install Python dependencies of T2T-ViT
 pip install "timm==0.3.4" pyyaml
 # Replace outdated helpers file in installed timm package
-cp helpers.py $CONDA_PREFIX/lib/python3.12/site-packages/timm/models/layers/helpers.py
+yes | cp helpers.py $CONDA_PREFIX/lib/python3.12/site-packages/timm/models/layers/helpers.py
 # Install Python dependencies of run_imagenet
 pip install einops lightning lightning-bolts
 # Install other needed Python packages used by experiment
