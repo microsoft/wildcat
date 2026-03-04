@@ -28,8 +28,8 @@ model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 2, attention: t
 model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 3, attention: thinformer                    , fid: 30.55599017230702, is_mean_fake: 56.499961853027344, is_std_fake: 3.4858810901641846
 model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 4, attention: thinformer                    , fid: 30.702971348670815, is_mean_fake: 56.646751403808594, is_std_fake: 3.9305171966552734
 model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 5, attention: thinformer                    , fid: 30.681797808756983, is_mean_fake: 56.80775833129883, is_std_fake: 3.624875068664551
-model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 1, attention: compressformer_r96_b8         , fid: 31.241934363042674, is_mean_fake: 57.63188552856445, is_std_fake: 3.7034549713134766
-model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 2, attention: compressformer_r96_b8         , fid: 31.08754584828762, is_mean_fake: 56.50178909301758, is_std_fake: 3.330432891845703
-model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 3, attention: compressformer_r96_b8         , fid: 31.182943829198393, is_mean_fake: 57.08642578125, is_std_fake: 3.428539752960205
-model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 4, attention: compressformer_r96_b8         , fid: 31.11187252055447, is_mean_fake: 57.1530876159668, is_std_fake: 3.136631727218628
-model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 5, attention: compressformer_r96_b8         , fid: 31.459505972892316, is_mean_fake: 56.5272102355957, is_std_fake: 3.0286905765533447
+model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 1, attention: compressformer_r96_b8         , fid: 31.760190781491985, is_mean_fake: 57.63873291015625, is_std_fake: 4.055901050567627
+model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 2, attention: compressformer_r96_b8         , fid: 31.551773744264096, is_mean_fake: 56.81450653076172, is_std_fake: 3.246511220932007
+model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 3, attention: compressformer_r96_b8         , fid: 31.680538865729375, is_mean_fake: 56.9720458984375, is_std_fake: 3.194859743118286
+model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 4, attention: compressformer_r96_b8         , fid: 31.695859016583654, is_mean_fake: 57.413726806640625, is_std_fake: 3.3993542194366455
+model: biggan-deep-512, data_per_class: 5, num_splits: 10, seed: 5, attention: compressformer_r96_b8         , fid: 31.915436417017645, is_mean_fake: 56.93553924560547, is_std_fake: 2.9467873573303223
