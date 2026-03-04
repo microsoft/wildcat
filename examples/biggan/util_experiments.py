@@ -8,7 +8,7 @@ from biggan_models.model_performer import PerformerBigGAN
 from biggan_models.model_reformer import ReformerBigGAN
 from biggan_models.model_kdeformer import KDEformerBigGAN
 from biggan_models.model_thinformer import ThinformerBigGAN
-from biggan_models.model_sblocal import SBlocalBigGAN
+###from biggan_models.model_sblocal import SBlocalBigGAN
 from biggan_models.model_fast import FastBigGAN
 from biggan_models.model_catformer import CATformerBigGAN
 

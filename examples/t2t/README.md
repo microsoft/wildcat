@@ -26,14 +26,13 @@ the compiler CUDA version (reported by `nvcc --version`), and PyTorch CUDA versi
 ```bash
 # Create environment with nvcc, cudart, and cuda-toolkit for scatterbrain
 yes | conda create -n scatter python=3.12 cuda-nvcc cuda-cudart cuda-toolkit pip -c nvidia
-# Activate environment
-conda activate scatter
+# Activate environment and point Python to conda library path
+conda activate scatter && export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH  
 # Install torch version that matches local cuda version 
-## For cuda version 13.0 use
+## For cuda version 13.0:
 pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu130
-## For cuda version 12.4 use 
-#pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
-# For older cuda drivers run: pip install torch torchvision torchaudio
+## For cuda version 12.4: 
+#pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
 # Install scatterbrain
 git clone https://github.com/idiap/fast-transformers.git
 # update this line (https://github.com/idiap/fast-transformers/blob/2ad36b97e64cb93862937bd21fcc9568d989561f/setup.py#L81) for Nvidia Ampere GPUs

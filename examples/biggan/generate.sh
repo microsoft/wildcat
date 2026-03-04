@@ -2,12 +2,12 @@
 
 METHODS=(
     compressformer
-    thinformer
-    exact
-    performer
-    reformer
-    kdeformer
-    sblocal
+    # thinformer
+    # exact
+    # performer
+    # reformer
+    # kdeformer
+    # sblocal
 )
 #for method in "${METHODS[@]}"
 num_splits=10
