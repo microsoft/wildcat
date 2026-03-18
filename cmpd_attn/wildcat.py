@@ -51,7 +51,7 @@ class WildCat(nn.Module):
         scale: float | None = None,
     ) -> torch.Tensor:
         
-        """Forward pass of the wildCat module."""
+        """Forward pass of the WildCat module."""
 
         # Make input tensors have three dimensions (batch_size*num_heads, sequence_length, model_dimension)
         queries, keys, values, queries_shape = align_shapes(queries, keys, values)
