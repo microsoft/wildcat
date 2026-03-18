@@ -25,9 +25,9 @@ the compiler CUDA version (reported by `nvcc --version`), and PyTorch CUDA versi
 
 ```bash
 # Create environment with nvcc, cudart, and cuda-toolkit for scatterbrain
-yes | conda create -n scatter python=3.12 cuda-nvcc cuda-cudart cuda-toolkit pip -c nvidia
+yes | conda create -n t2t python=3.12 cuda-nvcc cuda-cudart cuda-toolkit pip -c nvidia
 # Activate environment and point Python to conda library path
-conda activate scatter && export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH  
+conda activate t2t && export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH  
 # Install torch version that matches local cuda version 
 ## For cuda version 13.0:
 pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu130
@@ -50,33 +50,36 @@ pip install numpy matplotlib pandas tabulate
 pip install git+https://github.com/microsoft/thinformer.git
 # Install wildcat
 pip install -e ../../../wildcat
-# Restrict setuptools to ensure pkg_resources exists
+# Restrict setuptools to ensure pkg_resources exists (>=82 breaks Lightning 1.x)
 pip install "setuptools<82"
 ```
 
 > \[!TIP\]
 > On Nvidia Hopper GPUs (e.g., H100), `sed -i 's/return \["-arch=compute_60"\]/return ["-arch=compute_80"]/' fast-transformers/setup.py` should be replaced by `sed -i 's/return \["-arch=compute_60"\]/return ["-arch=compute_90"]/' fast-transformers/setup.py`.
 
-## Alternative environment creation
+### Prepare conda environment with dependencies, excluding Scatterbrain
 ```bash
 # Create conda environment
-conda create -n t2t python=3.12
-conda activate t2t
+yes | conda create -n t2tlean python=3.12 cuda-nvcc cuda-cudart cuda-toolkit pip -c nvidia
+conda activate t2tlean
+# Install torch version that matches local cuda version 
+pip install --pre torch torchvision torchaudio # --index-url https://download.pytorch.org/whl/nightly/cu130
 # IMPORTANT: Pin setuptools to avoid pkg_resources removal (>=82 breaks Lightning 1.x)
 pip install "setuptools<82"
 # Install Python dependencies of T2T-ViT
-# For compatability with torch requires updated timm version
-pip install timm pyyaml
+pip install "timm==0.3.4" pyyaml
+# Replace outdated helpers file in installed timm package
+yes | cp helpers.py $CONDA_PREFIX/lib/python3.12/site-packages/timm/models/layers/helpers.py
 # Install Python dependencies of the imagenet.py moddule
 pip install einops lightning lightning-bolts
 # Install other needed Python packages
 pip install numpy matplotlib pandas tabulate
-# Replace outdated helpers file in installed timm package
-cp helpers.py $CONDA_PREFIX/lib/python3.12/site-packages/timm/models/layers/helpers.py
 # Install thinformer
 pip install git+https://github.com/microsoft/thinformer.git
 # Install compressed attention
 pip install -e ../../../wildcat
+# Restrict setuptools to ensure pkg_resources exists (>=82 breaks Lightning 1.x)
+pip install "setuptools<82"
 ```
 
 ## Results
