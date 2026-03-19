@@ -1,7 +1,6 @@
 import argparse
 import os
 import torch
-# import torchvision
 import sys
 import time
 import random
