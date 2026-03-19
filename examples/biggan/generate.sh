@@ -1,7 +1,7 @@
 #!/bin/bash
 
 METHODS=(
-    compressformer
+    wildcat
     thinformer
     exact
     performer

@@ -9,7 +9,7 @@ METHODS=(
     kdeformer
     sblocal
     thinformer
-    compressformer
+    wildcat
 )
 for method in "${METHODS[@]}"
 do
