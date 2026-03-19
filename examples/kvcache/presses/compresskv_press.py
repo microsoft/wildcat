@@ -9,7 +9,7 @@ import types
 
 from transformers.cache_utils import DynamicCache
 
-from wildcat.compressKV import compress as rp_compress
+from wildcat.compresskv import compress as rp_compress
 
 from transformers.models.qwen2.modeling_qwen2 import apply_rotary_pos_emb, ALL_ATTENTION_FUNCTIONS, eager_attention_forward
 import math

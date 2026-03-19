@@ -4,7 +4,11 @@ import math
 def lambert_w_circ_exp(log_y, iterations = 5):
     """
     Helper function that computes log_y --> (W o exp)(log_y) with high numerical accuracy for a large range of inputs.
-    The Lambert W function is the solution of the equation w*exp(w) = y for y > -1/e.
+    The Lambert W function is the solution of the equation w*exp(w) = y for y > -1/e. Uses logarithmic recursion introduced in 
+    Lajos Loczi, Guaranteed- and high-precision evaluation of the Lambert  function
+    Applied Mathematics and Computation
+    Volume 433, 15 November 2022
+    https://www.sciencedirect.com/science/article/pii/S0096300322004805
 
     Args:
         log_y (torch.Tensor): Input tensor containing the logarithm of the argument for the Lambert W function.

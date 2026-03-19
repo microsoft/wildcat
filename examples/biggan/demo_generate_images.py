@@ -7,28 +7,19 @@ import time
 import random
 import numpy as np
 from tqdm import tqdm
-if False:
-    from pytorch_pretrained_biggan import (BigGAN, one_hot_from_names, 
-                                        truncated_noise_sample, one_hot_from_int,
-                                        save_as_images)
 
-    from pytorch_pretrained_biggan.model_fast import FastBigGAN
-    from pytorch_pretrained_biggan.model_performer import PerformerBigGAN
-    from pytorch_pretrained_biggan.model_reformer import ReformerBigGAN
-    from pytorch_pretrained_biggan.model_sblocal import SBlocalBigGAN
-else:
-    from biggan_models.model import BigGAN
-    from biggan_models.utils import (
-        truncated_noise_sample, 
-        one_hot_from_int, 
-        save_as_images
-    )
-    from biggan_models.model_fast import FastBigGAN
-    from biggan_models.model_kdeformer import KDEformerBigGAN
-    from biggan_models.model_performer import PerformerBigGAN
-    from biggan_models.model_reformer import ReformerBigGAN
-    from biggan_models.model_thinformer import ThinformerBigGAN
-    from biggan_models.model_catformer import CATformerBigGAN
+from biggan_models.model import BigGAN
+from biggan_models.utils import (
+    truncated_noise_sample, 
+    one_hot_from_int, 
+    save_as_images
+)
+from biggan_models.model_fast import FastBigGAN
+from biggan_models.model_kdeformer import KDEformerBigGAN
+from biggan_models.model_performer import PerformerBigGAN
+from biggan_models.model_reformer import ReformerBigGAN
+from biggan_models.model_thinformer import ThinformerBigGAN
+from biggan_models.model_catformer import CATformerBigGAN
 
 def get_args():
     parser = argparse.ArgumentParser()

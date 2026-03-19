@@ -33,9 +33,9 @@ from kvpress import (
     TOVAPress,
 )
 
-from wildcat.press import CompressKV
-from wildcat.balance_press import BalanceKVPress
-from wildcat.uniform_press import UniformPress
+from presses.compresskv_press import CompressKV
+from presses.balance_press import BalanceKVPress
+from presses.uniform_press import UniformPress
 
 # These dictionaries define the available datasets, scorers, and KVPress methods for evaluation.
 DATASET_REGISTRY = {
