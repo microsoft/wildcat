@@ -23,7 +23,7 @@ import torch.nn.functional as F
 from .config import BigGANConfig
 from .file_utils import cached_path
 
-from cmpd_attn import WildCat
+from wildcat import WildCat
 
 logger = logging.getLogger(__name__)
 

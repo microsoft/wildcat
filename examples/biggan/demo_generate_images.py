@@ -27,7 +27,6 @@ else:
     from biggan_models.model_kdeformer import KDEformerBigGAN
     from biggan_models.model_performer import PerformerBigGAN
     from biggan_models.model_reformer import ReformerBigGAN
-    from biggan_models.model_sblocal import SBlocalBigGAN
     from biggan_models.model_thinformer import ThinformerBigGAN
     from biggan_models.model_catformer import CATformerBigGAN
 
@@ -90,6 +89,10 @@ def main():
     elif attention == 'reformer':
         model = ReformerBigGAN.from_pretrained(model_name)
     elif attention == 'sblocal':
+        try:
+            from biggan_models.model_sblocal import SBlocalBigGAN
+        except:
+            print("To run scatterbrain, install fast-transformers package: pip install --no-build-isolation fast-transformers/")
         model = SBlocalBigGAN.from_pretrained(model_name)
     elif attention == 'thinformer':
         model = ThinformerBigGAN.from_pretrained(model_name)
