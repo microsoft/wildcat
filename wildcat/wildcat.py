@@ -4,8 +4,8 @@ import torch.functional as F
 from math import sqrt
 import math
 
-from cmpd_attn.transformer_utils import align_shapes
-from cmpd_attn.compressKV import compress_kv
+from wildcat.transformer_utils import align_shapes
+from wildcat.compressKV import compress_kv
 
 #from cmpd_attn.tr_update_kernel import update_kernel_triton
     

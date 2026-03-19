@@ -124,7 +124,7 @@ class T2TAttention(nn.Module):
                 self.attention_layer = SBLocalAttention(**attn_cfg)
 
             elif attn_cfg['name'] == 'compressformer':
-                from cmpd_attn import WildCat
+                from wildcat import WildCat
                 attn_cfg['scale'] = self.scale
                 print(f"{attn_cfg['name']} all params: {attn_cfg}")
                 self.attention_layer = WildCat(**attn_cfg)

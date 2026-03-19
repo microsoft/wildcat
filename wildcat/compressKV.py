@@ -4,7 +4,7 @@ from math import sqrt
 import math
 import random
 
-from cmpd_attn.math_utils import lambert_w_circ_exp
+from wildcat.math_utils import lambert_w_circ_exp
 #from cmpd_attn.wildcat import rp_nystrom, find_kernel_temperature
 
 def compress_kv(
