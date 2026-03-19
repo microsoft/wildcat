@@ -7,7 +7,7 @@ METHODS=(
     kdeformer
     scatterbrain
     thinformer
-    compressformer
+    wildcat
 )
 for device in 0 1 2 3
 do

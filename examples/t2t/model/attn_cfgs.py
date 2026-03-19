@@ -13,7 +13,7 @@ def get_attn_cfg1(attn1: str, args: ArgumentParser | None = None) -> dict:
     Args:
         attn1 (str): name of the attention method
         args (argparse.Namespace | None): command line arguments to be used
-            to configure compressformer, optional for other methods
+            to configure wildcat, optional for other methods
 
     """
     if attn1 == "full":
@@ -57,9 +57,9 @@ def get_attn_cfg1(attn1: str, args: ArgumentParser | None = None) -> dict:
             "use_torch_spda": False,
         }
     
-    elif attn1 == "compressformer":
+    elif attn1 == "wildcat":
         return {
-            "name": "compressformer",
+            "name": "wildcat",
             "r": args.rank1,
             # "q_kernel": args.q_kernel,
             "mode": args.mode,
@@ -122,9 +122,9 @@ def get_attn_cfg2(attn2: str, args: ArgumentParser | None = None) -> dict:
             "g": 4,
             "use_torch_spda": False,
         }
-    elif attn2 == "compressformer":
+    elif attn2 == "wildcat":
         return {
-            "name": "compressformer",
+            "name": "wildcat",
             "r": args.rank2, 
             # "q_kernel": args.q_kernel,
             "mode": args.mode,

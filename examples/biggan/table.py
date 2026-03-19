@@ -143,7 +143,7 @@ def generate_latex_table(fid_results, runtime_results, seeds):
         ('performer', 'Performer'),
         ('kdeformer', 'KDEformer'),
         ('thinformer', 'Thinformer'),
-        ('compressformer', '\\textsc{WildCat}'),
+        ('wildcat', '\\textsc{WildCat}'),
     ]
     
     # Start building table
@@ -158,7 +158,7 @@ def generate_latex_table(fid_results, runtime_results, seeds):
         if attention_key == 'exact':
             continue
         
-        # Check for exact match or pattern match (e.g., compressformer_r96_b8)
+        # Check for exact match or pattern match (e.g., wildcat_r96_b8)
         matching_keys = [k for k in fid_results.keys() if k == attention_key or k.startswith(attention_key + '_')]
         
         if not matching_keys:
@@ -196,9 +196,9 @@ def generate_latex_table(fid_results, runtime_results, seeds):
             fid_str = "--"
         
         # Bold means for specific methods
-        if attention_key in ['compressformer']:
+        if attention_key in ['wildcat']:
             is_str = bold_mean_in_latex(is_str)
-        if attention_key in ['kdeformer', 'thinformer', 'compressformer']:
+        if attention_key in ['kdeformer', 'thinformer', 'wildcat']:
             fid_str = bold_mean_in_latex(fid_str)
         
         # Calculate speed-up
@@ -213,8 +213,8 @@ def generate_latex_table(fid_results, runtime_results, seeds):
         else:
             runtime_str = "--"
         
-        # Bold speed-up for compressformer (WildCat)
-        if attention_key == 'compressformer' and runtime_str != "--":
+        # Bold speed-up for wildcat (WildCat)
+        if attention_key == 'wildcat' and runtime_str != "--":
             runtime_str = bold_mean_in_latex(runtime_str)
         
         # Add spacing to all rows except the last one

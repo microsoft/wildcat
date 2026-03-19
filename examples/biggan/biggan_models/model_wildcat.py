@@ -60,10 +60,10 @@ def sn_embedding(eps=1e-12, **kwargs):
     return nn.utils.spectral_norm(nn.Embedding(**kwargs), eps=eps)
 
 
-class CompressformerSelfAttn(nn.Module):
+class WildCatSelfAttn(nn.Module):
     """ Self attention Layer"""
     def __init__(self, in_channels, r=1, q_kernel=False, mode="eager", bins=1, dim_bins=1, eps=1e-12):
-        super(CompressformerSelfAttn, self).__init__()
+        super(WildCatSelfAttn, self).__init__()
         self.in_channels = in_channels
         self.snconv1x1_theta = snconv2d(in_channels=in_channels, out_channels=in_channels//8,
                                         kernel_size=1, bias=False, eps=eps)
@@ -234,7 +234,7 @@ class Generator(nn.Module):
         layers = []
         for i, layer in enumerate(config.layers):
             if i == config.attention_layer_position:
-                layers.append(CompressformerSelfAttn(
+                layers.append(WildCatSelfAttn(
                     ch*layer[1], eps=config.eps, 
                     r=config.r, q_kernel=config.q_kernel, 
                     mode=config.mode, bins=config.bins, 
@@ -299,7 +299,7 @@ class WildCatBigGAN(nn.Module):
 
         # Load config
         config = BigGANConfig.from_json_file(resolved_config_file)
-        # Add Compressformer-specific args to config
+        # Add WildCat-specific args to config
         config.r = r
         config.q_kernel = q_kernel
         config.mode = mode

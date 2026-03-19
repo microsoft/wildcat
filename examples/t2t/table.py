@@ -149,7 +149,7 @@ def generate_latex_table(acc_results, runtime_results, attention_methods=None):
         'scatterbrain': 'ScatterBrain',
         'kdeformer': 'KDEformer',
         'thinformer': 'Thinformer',
-        'compressformer': '\\textsc{WildCat}',
+        'wildcat': '\\textsc{WildCat}',
     }
     
     # Start building table
@@ -236,7 +236,7 @@ def main():
     if args.methods is None:
         # Default order for methods - Performer before Reformer
         all_methods = set(acc_results.keys()) | set(runtime_results.keys())
-        method_order = ['full', 'performer', 'reformer', 'kdeformer', 'scatterbrain', 'thinformer', 'compressformer']
+        method_order = ['full', 'performer', 'reformer', 'kdeformer', 'scatterbrain', 'thinformer', 'wildcat']
         args.methods = [m for m in method_order if m in all_methods]
         # Add any remaining methods
         args.methods.extend([m for m in sorted(all_methods) if m not in args.methods])

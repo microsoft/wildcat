@@ -52,7 +52,7 @@ parser = get_base_parser()
 parser.add_argument(
     "--method1",
     "-m1",
-    default="compressformer",
+    default="wildcat",
     type=str,
     help="attention method for first attention layer"
     "e.g., full, performer, reformer, scatterbrain, kdeformer, thinformer",
@@ -60,7 +60,7 @@ parser.add_argument(
 parser.add_argument(
     "--method2",
     "-m2",
-    default="compressformer",
+    default="wildcat",
     type=str,
     help="attention method for second attention layer"
     "e.g., full, performer, reformer, scatterbrain, kdeformer, thinformer",
@@ -79,7 +79,7 @@ acc_dir = os.path.join(output_path, "acc")
 os.makedirs(acc_dir, exist_ok=True)
 method1str = method1
 method2str = method2
-if method1 == "compressformer":
+if method1 == "wildcat":
     # if args.q_kernel:
     #     method1str += "_q"
     if args.mode:
@@ -88,7 +88,7 @@ if method1 == "compressformer":
         method1str += f"_r{args.rank1}"
     if args.bins1 is not None:
         method1str += f"_b{args.bins1}"
-if method2 == "compressformer":
+if method2 == "wildcat":
     # if args.q_kernel:
     #     method2str += "_q"
     if args.mode:

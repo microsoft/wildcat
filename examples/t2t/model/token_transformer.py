@@ -123,7 +123,7 @@ class T2TAttention(nn.Module):
                 print(f"scatterbrain all params: {attn_cfg}")
                 self.attention_layer = SBLocalAttention(**attn_cfg)
 
-            elif attn_cfg['name'] == 'compressformer':
+            elif attn_cfg['name'] == 'wildcat':
                 from wildcat import WildCat
                 attn_cfg['scale'] = self.scale
                 print(f"{attn_cfg['name']} all params: {attn_cfg}")

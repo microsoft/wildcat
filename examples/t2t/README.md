@@ -86,7 +86,7 @@ pip install "setuptools<82"
 
 To test wildcat, only, please run:
 ```bash
-python accuracy.py --method1 compressformer --method2 compressformer
+python accuracy.py --method1 wildcat --method2 wildcat
 ```
 
 To obtain the accuracy numbers for all methods, please run:

@@ -32,7 +32,7 @@ from imagenet import get_imagenet_datamodule
 
 parser = get_base_parser()
 parser.add_argument(
-    "--method", "-m", default="compressformer", type=str, help="attention method"
+    "--method", "-m", default="wildcat", type=str, help="attention method"
 )
 parser.add_argument("--batch_size", "-bs", default=64, type=int, help="batch size")
 parser.add_argument(

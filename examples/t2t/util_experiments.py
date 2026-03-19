@@ -54,54 +54,54 @@ def get_base_parser() -> argparse.ArgumentParser:
         "-r1",
         default=224,
         type=int,
-        help="compressformer rank parameter for attention layer 1",
+        help="wildcat rank parameter for attention layer 1",
     )
     parser.add_argument(
         "--rank2",
         "-r2",
         default=196,
         type=int,
-        help="compressformer rank parameter for attention layer 2",
+        help="wildcat rank parameter for attention layer 2",
     )
     parser.add_argument(
         "--bins1",
         "-b1",
         default=224,
         type=int,
-        help="compressformer bins parameter for attention layer 1",
+        help="wildcat bins parameter for attention layer 1",
     )
     parser.add_argument(
         "--bins2",
         "-b2",
         default=196,
         type=int,
-        help="compressformer bins parameter for attention layer 2",
+        help="wildcat bins parameter for attention layer 2",
     )
     parser.add_argument(
         "--dim_bins1",
         "-db1",
         default=1,
         type=int,
-        help="compressformer dim_bins parameter for attention layer 1",
+        help="wildcat dim_bins parameter for attention layer 1",
     )
     parser.add_argument(
         "--dim_bins2",
         "-db2",
         default=1,
         type=int,
-        help="compressformer dim_bins parameter for attention layer 2",
+        help="wildcat dim_bins parameter for attention layer 2",
     )
     parser.add_argument(
         "--mode",
         default="eager",
         type=str,
-        help="mode for compressformer attention",
+        help="mode for wildcat attention",
     )
     # parser.add_argument(
     #     "--q_kernel",
     #     "-q",
     #     action="store_true",
-    #     help="if set, uses queries in compressformer kernel",
+    #     help="if set, uses queries in wildcat kernel",
     # )
     return parser
 
