@@ -8,9 +8,8 @@ from biggan_models.model_performer import PerformerBigGAN
 from biggan_models.model_reformer import ReformerBigGAN
 from biggan_models.model_kdeformer import KDEformerBigGAN
 from biggan_models.model_thinformer import ThinformerBigGAN
-from biggan_models.model_sblocal import SBlocalBigGAN
 from biggan_models.model_fast import FastBigGAN
-from biggan_models.model_catformer import CATformerBigGAN
+from biggan_models.model_wildcat import WildCatBigGAN
 
 CHECKPOINTPATH = "checkpoints"
 DATASETPATH = "data"
@@ -62,17 +61,17 @@ def get_base_parser() -> argparse.ArgumentParser:
     parser.add_argument("--num_outputs",type=int, default=-1)
     parser.add_argument("--data_per_class",type=int, default=1)
     parser.add_argument("--batch_size",type=int, default=32)
-    parser.add_argument("--attention",type=str, default='compressformer', choices=['exact', 'kdeformer', 'performer', 'reformer', 'sblocal', 'thinformer', 'kde', 'compressformer'])
+    parser.add_argument("--attention",type=str, default='wildcat', choices=['exact', 'kdeformer', 'performer', 'reformer', 'sblocal', 'thinformer', 'kde', 'wildcat'])
     parser.add_argument("--truncation",type=float, default=0.4)
     parser.add_argument("--no_store",action='store_true')    
     parser.add_argument("--g", "-g", type = int, default=None, 
                         help="KH-Compress oversampling factor" \
                             "If None, use the default value in the model config JSON file")
-    parser.add_argument("--r", "-r", type=int, default=96, help="Compressformer rank parameter")
-    parser.add_argument("--q_kernel", action="store_true", help="Use key-query kernel for Compressformer instead of keys-only kernel?")
-    parser.add_argument("--mode", type=str, default="eager", help="Compressformer mode")
-    parser.add_argument("--bins", "-b", type=int, default=8, help="Compressformer number of bins")
-    parser.add_argument("--dim_bins", "-db", type=int, default=1, help="Compressformer number of dimension bins")
+    parser.add_argument("--r", "-r", type=int, default=96, help="wildcat rank parameter")
+    parser.add_argument("--q_kernel", action="store_true", help="Use key-query kernel for wildcat instead of keys-only kernel?")
+    parser.add_argument("--mode", type=str, default="eager", help="wildcat mode")
+    parser.add_argument("--bins", "-b", type=int, default=8, help="wildcat number of bins")
+    parser.add_argument("--dim_bins", "-db", type=int, default=1, help="wildcat number of dimension bins")
     return parser
 
 
@@ -125,11 +124,11 @@ def get_model(
         model_name: str, name of the model to load
         attention: str, attention method to use
         g: int, oversampling factor for KH-Compress. If None, use the default value in the model config JSON file.
-        r: int, rank parameter for Compressformer
-        q_kernel: bool, whether to use key-query kernel for Compressformer instead of keys-only kernel
-        mode: str, mode for Compressformer
-        bins: int, number of bins for Compressformer
-        dim_bins: int, number of dimension bins for Compressformer
+        r: int, rank parameter for wildcat
+        q_kernel: bool, whether to use key-query kernel for wildcat instead of keys-only kernel
+        mode: str, mode for wildcat
+        bins: int, number of bins for wildcat
+        dim_bins: int, number of dimension bins for wildcat
     Returns:
         model: torch.nn.Module, the loaded model
     """
@@ -145,11 +144,12 @@ def get_model(
     elif attention == 'reformer':
         model = ReformerBigGAN.from_pretrained(model_name)
     elif attention == 'sblocal':
+        from biggan_models.model_sblocal import SBlocalBigGAN
         model = SBlocalBigGAN.from_pretrained(model_name)
     elif attention == 'thinformer':
         model = ThinformerBigGAN.from_pretrained(model_name, g=g)
-    elif attention == 'compressformer':
-        model = CATformerBigGAN.from_pretrained(model_name, r=r, mode=mode, bins=bins, dim_bins=dim_bins)
+    elif attention == 'wildcat':
+        model = WildCatBigGAN.from_pretrained(model_name, r=r, mode=mode, bins=bins, dim_bins=dim_bins)
     else:
         raise NotImplementedError("Invalid attention option")
     return model

@@ -77,7 +77,7 @@ class CompressformerSelfAttn(nn.Module):
         self.softmax  = nn.Softmax(dim=-1)
         self.gamma = nn.Parameter(torch.zeros(1))
         # BigGAN uses scale = 1
-        print(f'Initializing CompressedAttention with scale=1, r={r}, mode={mode}, bins={bins}, dim_bins={dim_bins}')
+        print(f'Initializing WildCat module with scale=1, r={r}, mode={mode}, bins={bins}, dim_bins={dim_bins}')
         self.attn = WildCat(scale=1., r=r, mode=mode, bins=bins, dim_bins=dim_bins)
 
     def fastformer(self, query, key, value):
@@ -274,7 +274,7 @@ class Generator(nn.Module):
         z = self.tanh(z)
         return z
 
-class CATformerBigGAN(nn.Module):
+class WildCatBigGAN(nn.Module):
     """BigGAN Generator."""
 
     @classmethod
@@ -315,7 +315,7 @@ class CATformerBigGAN(nn.Module):
         return model
 
     def __init__(self, config):
-        super(CATformerBigGAN, self).__init__()
+        super(WildCatBigGAN, self).__init__()
         self.config = config
         self.embeddings = nn.Linear(config.num_classes, config.z_dim, bias=False)
         self.generator = Generator(config)

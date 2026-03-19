@@ -28,7 +28,7 @@ bash generate.sh
 To test wildcat, only, please run:
 
 ```bash
-python demo_generate_images.py --fid --attention compressformer
+python demo_generate_images.py --fid --attention wildcat
 ```
 
 > \[!TIP\]

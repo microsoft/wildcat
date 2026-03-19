@@ -1,12 +1,9 @@
 import torch
-from wildcat.math_utils import lambert_w_circ_exp
 
 def rp_nystrom(
     keys: torch.Tensor,
     sqd_knorm: torch.Tensor,
-    r: int,
-    mode: str = "eager",
-    accelerate = False
+    r: int
 ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
     """Implements the randomly pivoted Cholesky algorithm optimized for torch.compile.
 
@@ -41,86 +38,44 @@ def rp_nystrom(
     g = torch.full((*batch_shape, r), -1., dtype=dtype, device=device)
 
     # Main loop:
-    if mode == "eager":
-
-        for i in range(r):
-            # Sample with Gumbel-max trick (more compile-friendly)
-            uniform.uniform_()
-            scores = torch.log(res_diagonal) + sqd_knorm - torch.log(-torch.log(uniform))
-            ids = torch.argmax(scores, dim=-1, keepdim=True)
-            
-            # Update coreset
-            coreset_list[i] = ids
-
-            if i > 0:
-                # Gather kernel values for previously selected points
-                a = torch.gather(kernel_core[:, :i, :], -1, ids[..., None].expand(kernel_core_dim, i, 1)).squeeze(2)
-                
-                # Compute Cholesky factor of kernel inverse
-                # bmm faster than einsum
-                g[..., :i] = torch.bmm(kernel_inv[..., :i, :i], a.unsqueeze(-1)).squeeze(-1)
-                g[..., :i+1] *= torch.rsqrt(res_diagonal.gather(-1, ids))
-                
-            # Update kernel inverse in-place
-            kernel_inv[..., :i+1, :i+1] += g[..., :i+1].unsqueeze(-1) * g[...,:i+1].unsqueeze(-2)
-            
-            # Compute kernel row corresponding to selected point
-            kernel_row = gsn_kernel(keys, ids, hsqd_knorm).clamp(max = 1.)
-            kernel_core[..., i, :] = kernel_row.squeeze(-2)
-
-            if i < r-1:
-                # Update residual diagonal
-                y = torch.einsum(
-                    "...si, ...s -> ...i", kernel_core[..., :i+1, :], g[..., :i+1])
-                
-                res_diagonal -= y.square()
-                # Set diagonal entries for selected points to zero
-                res_diagonal.scatter_(-1, ids, 0.0)
-                # Enforce nonnegativity
-                res_diagonal.clamp_(min=0.0)
-
-        # Concatenate indices
-        coreset = torch.cat(coreset_list, dim=-1)
-        
-    elif mode == "triton":
-        # Compute initial Gumbel scores
+    for i in range(r):
+        # Sample with Gumbel-max trick (more compile-friendly)
         uniform.uniform_()
         scores = torch.log(res_diagonal) + sqd_knorm - torch.log(-torch.log(uniform))
-        for i in range(r):
-            # Select the index with the highest score (this is the Gumbel-max trick for sampling)
-            ids = scores.argmax(dim=-1, keepdim=True)
+        ids = torch.argmax(scores, dim=-1, keepdim=True)
+        
+        # Update coreset
+        coreset_list[i] = ids
 
-            # Update coreset
-            # Storing indices in a list and concatenating is faster than using scatter_
-            coreset_list[i] = ids
+        if i > 0:
+            # Gather kernel values for previously selected points
+            a = torch.gather(kernel_core[:, :i, :], -1, ids[..., None].expand(kernel_core_dim, i, 1)).squeeze(2)
             
-            # Update kernel inverse
-            if i > 0:
-                # Gather kernel values for previously selected points
-                a = torch.gather(kernel_core[:, :i, :], -1, ids[..., None].expand(kernel_core_dim, i, 1)).squeeze(2)
-                
-                # Compute Cholesky factor of kernel inverse
-                # bmm faster than einsum
-                g[..., :i] = torch.bmm(kernel_inv[..., :i, :i], a.unsqueeze(-1)).squeeze(-1)
-                g[..., :i+1] *= torch.rsqrt(res_diagonal.gather(-1, ids))
-                
-            # Update kernel inverse in-place
-            kernel_inv[..., :i+1, :i+1] += g[..., :i+1].unsqueeze(-1) * g[...,:i+1].unsqueeze(-2)
+            # Compute Cholesky factor of kernel inverse
+            # bmm faster than einsum
+            g[..., :i] = torch.bmm(kernel_inv[..., :i, :i], a.unsqueeze(-1)).squeeze(-1)
+            g[..., :i+1] *= torch.rsqrt(res_diagonal.gather(-1, ids))
             
-            update_kernel_triton(
-                iteration=i,
-                x=keys,
-                x_hsqn=hsqd_knorm,
-                ids=ids.squeeze(-1),
-                kernel_core=kernel_core,
-                g=g,
-                res_diagonal=res_diagonal,
-                uniform=uniform,
-                scores=scores,
-            )
+        # Update kernel inverse in-place
+        kernel_inv[..., :i+1, :i+1] += g[..., :i+1].unsqueeze(-1) * g[...,:i+1].unsqueeze(-2)
+        
+        # Compute kernel row corresponding to selected point
+        kernel_row = gsn_kernel(keys, ids, hsqd_knorm).clamp(max = 1.)
+        kernel_core[..., i, :] = kernel_row.squeeze(-2)
 
-        # Concatenate indices
-        coreset = torch.cat(coreset_list, dim=-1)
+        if i < r-1:
+            # Update residual diagonal
+            y = torch.einsum(
+                "...si, ...s -> ...i", kernel_core[..., :i+1, :], g[..., :i+1])
+            
+            res_diagonal -= y.square()
+            # Set diagonal entries for selected points to zero
+            res_diagonal.scatter_(-1, ids, 0.0)
+            # Enforce nonnegativity
+            res_diagonal.clamp_(min=0.0)
+
+    # Concatenate indices
+    coreset = torch.cat(coreset_list, dim=-1)
     
     return coreset, kernel_inv.to(keys_dtype), kernel_core.to(keys_dtype)
 

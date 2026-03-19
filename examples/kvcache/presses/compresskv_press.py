@@ -21,9 +21,7 @@ class CompressKV(BasePress):
     to the attention mechanism.
     """
     compression_ratio: float = 0.5 # Warning: this is the fraction of points NOT kept
-    #bins: int = 1
     bin_r: int = 1 # number of KV pairs to keep per bin
-    dim_bins: int = 1
     window_size: int = 32
     sink_size: int = 32
         
@@ -53,11 +51,7 @@ class CompressKV(BasePress):
         window_size = self.window_size
         sink_size = self.sink_size
         layer_idx = module.layer_idx
-        #bins = self.bins
         bin_r = self.bin_r
-        
-        if self.dim_bins > 1:
-            raise NotImplementedError("dim_bins > 1 not implemented yet")
 
         B, H, N, E = keys.shape
         D = values.shape[-1]
@@ -88,10 +82,11 @@ class CompressKV(BasePress):
         bin_N = target_N_in // bins
         N_in = bins * bin_N
         window_size = window_size + target_N_in - N_in
-        total_kept = sink_size + window_size + bins*bin_r
-        print(f"Compressing layer {layer_idx} from {N} to {total_kept} keys "
-              f"(bin_r: {bin_r}, target_frac_kept: {1-self.compression_ratio}, frac_kept: {total_kept/N}, target_N_in: {target_N_in}, N_in: {N_in}, target_r: {target_r}, r: {bins*bin_r}, bins: {bins}, bin_N: {bin_N})", flush=True)
 
+        if False:
+            # To gain insight about the effective compression ratio
+            total_kept = sink_size + window_size + bins*bin_r
+            print(f"frac_kept: {total_kept/N}", flush = True)
 
         # Compression routine
         sink_keys = keys[..., :sink_size, :]
@@ -132,8 +127,6 @@ class CompressKV(BasePress):
         weight_vector = torch.cat((sink_ones, weight_vector, window_ones), dim=-2)
 
         compressed_values = torch.cat((compressed_values, weight_vector), dim=-1)
-        
-        #print(f" Effective compression rate: {1- compressed_keys.shape[-2]/seq_len}")
         
         return compressed_keys, compressed_values
 

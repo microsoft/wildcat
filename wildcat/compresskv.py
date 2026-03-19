@@ -14,8 +14,6 @@ def compress_kv(
         scale,
         r
 ):
-    keys_shape = keys.shape
-    values_shape = values.shape
 
     keys = keys.reshape(-1, keys.shape[-2], keys.shape[-1])
     values = values.reshape(-1, values.shape[-2], values.shape[-1])
@@ -45,8 +43,7 @@ def compress_kv(
     coreset, kernel_inv, kernel_core = rp_nystrom(
         keys=keys,
         sqd_knorm=sqd_knorm,
-        r=r,
-        mode="eager",
+        r=r
     )
 
     # Select compressed keys:

@@ -8,6 +8,8 @@ import random
 import numpy as np
 from tqdm import tqdm
 
+from torch.nn import functional as F
+
 from biggan_models.model import BigGAN
 from biggan_models.utils import (
     truncated_noise_sample, 
@@ -19,7 +21,7 @@ from biggan_models.model_kdeformer import KDEformerBigGAN
 from biggan_models.model_performer import PerformerBigGAN
 from biggan_models.model_reformer import ReformerBigGAN
 from biggan_models.model_thinformer import ThinformerBigGAN
-from biggan_models.model_catformer import CATformerBigGAN
+from biggan_models.model_wildcat import WildCatBigGAN
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -29,7 +31,7 @@ def get_args():
     parser.add_argument("--seed",type=int, default=1)
     parser.add_argument("--num_splits", "-ns",type=int, default=10)
     parser.add_argument("--batch_size",type=int, default=32)
-    parser.add_argument("--attention",type=str, default='exact', choices=['exact', 'kde', 'kdeformer', 'performer', 'reformer', 'sblocal', 'thinformer', 'compressformer'])
+    parser.add_argument("--attention",type=str, default='exact', choices=['exact', 'kde', 'kdeformer', 'performer', 'reformer', 'sblocal', 'thinformer', 'wildcat'])
     parser.add_argument("--truncation",type=float, default=0.4)
     parser.add_argument("--no_store",action='store_true')
     parser.add_argument("--fid",action='store_true')
@@ -87,8 +89,8 @@ def main():
         model = SBlocalBigGAN.from_pretrained(model_name)
     elif attention == 'thinformer':
         model = ThinformerBigGAN.from_pretrained(model_name)
-    elif attention == 'compressformer':
-        model = CATformerBigGAN.from_pretrained(model_name, r=args.r,
+    elif attention == 'wildcat':
+        model = WildCatBigGAN.from_pretrained(model_name, r=args.r,
                                                     mode=args.mode, bins=args.bins, dim_bins=args.dim_bins)
     else:
         raise NotImplementedError("Invalid attention option")
@@ -142,7 +144,6 @@ def main():
 
     if args.fid:
         print("computing FID & Inception scores ...")
-        from demo_inception_score import get_logits
         import inception_utils
         
         pool, logits = get_logits(output_all)
@@ -157,8 +158,8 @@ def main():
         print(f"FID  : {fid_value}", flush=True)
 
         print("Saving results to file", flush=True)
-        if attention == 'compressformer':
-            attention = f"compressformer_r{args.r}_b{args.bins}"
+        if attention == 'wildcat':
+            attention = f"wildcat_r{args.r}_b{args.bins}"
         res_str = f"model: {args.model_name}, data_per_class: {data_per_class}, num_splits: {args.num_splits}, seed: {args.seed}, attention: {attention:<30}, fid: {fid_value}, is_mean_fake: {is_mean_fake}, is_std_fake: {is_std_fake}\n"
         with open("./fid_score_results.txt", "a") as f:
             f.write(res_str)
@@ -174,36 +175,28 @@ def main():
             save_as_images(output_all[:num_images_to_save], output_path + "/img")
             print(f"done. ({time.time() - tic:.4f} sec)")
 
-def fid_test():
 
-    imgs = torch.randint(0, 255, (100, 3, 512, 512), dtype=torch.uint8)
-    from torchmetrics.image.inception import InceptionScore
-    aa = InceptionScore(feature=2048)
-    xx = aa.inception(imgs)
-    # # inception.update(imgs)
-    # print(xx.shape)
+def get_logits(imgs, batch_size=128, net=None):
+    import inception_utils
 
-    # from torchmetrics.image.fid import FrechetInceptionDistance
-    # bb = FrechetInceptionDistance(feature=2048)
-    # yy = bb.inception(imgs)
-    # print(yy.shape)
+    if net is None:
+        net = inception_utils.load_inception_net()
+        net = net.to('cuda')
 
-    # from pytorch_fid.fid_score import get_activations, calculate_frechet_distance
-    from pytorch_fid.inception import InceptionV3
-    dims = 2048
-    block_idx = InceptionV3.BLOCK_INDEX_BY_DIM[dims]
-    inception_model = InceptionV3([block_idx])
-    pred = get_activations((imgs / 255.).float(), inception_model)
+    pool, logits = [], []
+    with torch.no_grad():
+        num_batches = len(imgs) // batch_size + 1
+        for idx in tqdm(range(num_batches)):
+            batch_idx = list(range(idx * batch_size, min(len(imgs), (idx+1) * batch_size)))
+            if len(batch_idx) == 0:
+                continue
 
-
-    # from torchmetrics.image.fid import NoTrainInceptionV3
-    # cc = NoTrainInceptionV3(name="inception-v3-compat", features_list=[str(2048)])
-    # zz = cc(imgs)
-    # is_mean, is_std = inception.compute()
-
-    import pdb; pdb.set_trace();
-
-
+            # Generate an image
+            pool_val, logits_val = net(imgs[batch_idx].to('cuda'))
+            pool += [pool_val]
+            logits += [F.softmax(logits_val, 1)]
+    pool, logits = torch.cat(pool, 0), torch.cat(logits, 0)
+    return pool , logits
 
 if __name__ == "__main__":
     # fid_test()
