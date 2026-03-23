@@ -6,71 +6,92 @@ import random
 
 from wildcat.math_utils import lambert_w_circ_exp
 from wildcat.rp_nystrom import rp_nystrom
-#from cmpd_attn.wildcat import rp_nystrom, find_kernel_temperature
 
 def compress_kv(
         keys,
         values,
-        scale,
-        r
+        r,
+        scale = None,
+        q_scale = None
 ):
+    """ Reduces key-value pairs of input sequence to a weighted coreset of size r.
 
-    keys = keys.reshape(-1, keys.shape[-2], keys.shape[-1])
-    values = values.reshape(-1, values.shape[-2], values.shape[-1])
+    Only accepts tensor shapes of length three.
+    Fold extra dimensions into batch dimension. 
+
+    Args:
+        keys (torch.Tensor): Key tensor of shape
+            (batch_size, seq_len, qk_dim).
+        values (torch.Tensor): Value tensor of shape
+            (batch_size, seq_len, v_dim).
+        r (int): Target coreset size.
+        scale (float, optional): Scale factor for dot-product attention.
+            Defaults to 1 / sqrt(qk_dim) if None.
+        q_scale (float, optional): Upper bound on query norms. 
+            Defaults to the maximum key norm if None.
+
+    Returns:
+        cmpd_keys (torch.Tensor): Selected coreset keys of shape
+            (batch_size, r, qk_dim).
+        cmpd_values (torch.Tensor): Nyström-weighted aggregation of values,
+            shape (batch_size, r, v_dim).
+        w (torch.Tensor): Per-coreset-key sum of Nyström weights, shape
+            (batch_size, r).
+    """
 
     E = keys.shape[-1]
     n = keys.shape[-2]
 
+    scale = scale or 1 / sqrt(E)
+
     sqd_knorm = keys.square().sum(dim=-1)
 
     k_scale = sqd_knorm.sqrt().amax(dim = -1, keepdim=True)
+    q_scale = q_scale or k_scale
 
-    # Shape (B*C*F, 1)
+    # Shape (B, 1)
     tau = find_kernel_temperature(
         scale = scale,
-        q_scale=k_scale,
+        q_scale=q_scale,
         k_scale=k_scale,
         n = n,
         phi = None
     )
 
+    # Rescale keys before compression
     key_multiplier = sqrt(scale) / tau
     keys = keys * key_multiplier.unsqueeze(-1)
     sqd_knorm = sqd_knorm * (key_multiplier**2)
 
     # Compression of keys and values
     # Outputs kernel_inv and kernel_core computed from Gaussian kernel
-    coreset, kernel_inv, kernel_core = rp_nystrom(
+    coreset, kernel_core_inv, kernel_rows = rp_nystrom(
         keys=keys,
         sqd_knorm=sqd_knorm,
         r=r
     )
 
     # Select compressed keys:
-    # Shape (B*C*F, r//C, E//F)
-    core_keys = keys.gather(-2, coreset.unsqueeze(-1).expand(*coreset.shape, E))
-    core_sqd_knorms = sqd_knorm.gather(-1, coreset)
+    # Shape (B, r, E)
+    cmpd_keys = keys.gather(-2, coreset.unsqueeze(-1).expand(*coreset.shape, E))
+    cmpd_sqd_knorms = sqd_knorm.gather(-1, coreset)
+
     # Undo rescaling of keys
     # Undoing of rescaling only has to be applied to core_keys, not the norms, since the weights are computed for rescaled keys.
-    core_keys /= key_multiplier.unsqueeze(-1)
+    cmpd_keys /= key_multiplier.unsqueeze(-1)
 
     # Compute Nystrom weights for Gaussian kernel
-    W = torch.einsum("...rs, ...sl -> ...rl", kernel_inv, kernel_core)
+    W = torch.einsum("...rs, ...sl -> ...rl", kernel_core_inv, kernel_rows)
 
     # Adjust to weights for the exponential kernel
-    scaling = -core_sqd_knorms.unsqueeze(-1) + sqd_knorm.unsqueeze(-2)
-    ###scaling = scaling - scaling.amax((-1,-2), keepdim=True) # this line is only valid if window and sinks get scaled too?
+    scaling = -cmpd_sqd_knorms.unsqueeze(-1) + sqd_knorm.unsqueeze(-2)
     W = W * torch.exp(scaling / 2.)
 
-    KV = torch.einsum("...rn, ...nd -> ...rd", W, values)
-    K1 = W.sum(dim=-1)
+    # Compute compressed values and softmax normalisation weight
+    cmpd_values = torch.einsum("...rn, ...nd -> ...rd", W, values)
+    w = W.sum(dim=-1)
 
-    # core_keys = core_keys.reshape(*keys_shape[:-2], r, E)
-    # #core_values = core_values.reshape(*values_shape[:-2], r, E)
-    # KV = KV.reshape(*values_shape[:-2], r, E)
-    # K1 = K1.reshape(*keys_shape[:-2], r, 1)
-
-    return core_keys, KV, K1
+    return cmpd_keys, cmpd_values, w
     
 
 def compress(
@@ -85,7 +106,7 @@ def compress(
 
     scale = module.scaling
 
-    return compress_kv(keys, values, scale, r)
+    return compress_kv(keys, values, r, scale)
 
 
 
@@ -96,22 +117,24 @@ def find_kernel_temperature(
         scale,
         q_scale,
         k_scale,
-        n: int,
+        N: int,
         phi: float | None = None,
 ):
     """Finds the relative scale between keys and queries that optimises the trade-off
     between low-rank approximability of the attention kernel incurred error factors.
 
-    Args:   q_scale (Tensor): shape (batch_dims, 1) max_i ||q_i||_2
-            k_scale (Tensor): shape (batch_dims, 1) max_i ||k_i||_2
-            n (int): number of key-value pairs
+    Args:   q_scale (torch.Tensor): shape (batch_dims, 1): Maximum query norm: max_i ||q_i||_2
+            k_scale (torch.Tensor): shape (batch_dims, 1): Maximum key norm: max_i ||k_i||_2
+            N (int): number of key-value pairs
             phi (float): adjustable hyperparameter, default 1.0
+
+    Returns: tau (torch.Tensor): shape (batch_dims, 1)
     """
 
     if phi is not None:
-        n = n*phi**2
+        N = N*phi**2
 
-    b = math.log(n)/(scale*q_scale*k_scale) + 2.
+    b = math.log(N)/(scale*q_scale*k_scale) + 2.
     upper = b/(2*lambert_w_circ_exp((b/TWO_RHO_0).log()))
     tau = torch.sqrt(k_scale/q_scale * upper)
 
