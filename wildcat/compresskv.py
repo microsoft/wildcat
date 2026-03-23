@@ -40,7 +40,12 @@ def compress_kv(
     """
 
     E = keys.shape[-1]
-    n = keys.shape[-2]
+    N = keys.shape[-2]
+
+    if N <= r:
+        w = torch.ones(keys.shape[0], keys.shape[1], 
+                       device = keys.device, dtype = keys.dtype)
+        return keys, values, w
 
     scale = scale or 1 / sqrt(E)
 
@@ -54,7 +59,7 @@ def compress_kv(
         scale = scale,
         q_scale=q_scale,
         k_scale=k_scale,
-        n = n,
+        N = N,
         phi = None
     )
 
