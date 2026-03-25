@@ -77,26 +77,26 @@ def get_base_parser() -> argparse.ArgumentParser:
         type=int,
         help="wildcat bins parameter for attention layer 2",
     )
-    parser.add_argument(
-        "--dim_bins1",
-        "-db1",
-        default=1,
-        type=int,
-        help="wildcat dim_bins parameter for attention layer 1",
-    )
-    parser.add_argument(
-        "--dim_bins2",
-        "-db2",
-        default=1,
-        type=int,
-        help="wildcat dim_bins parameter for attention layer 2",
-    )
-    parser.add_argument(
-        "--mode",
-        default="eager",
-        type=str,
-        help="mode for wildcat attention",
-    )
+    # parser.add_argument(
+    #     "--dim_bins1",
+    #     "-db1",
+    #     default=1,
+    #     type=int,
+    #     help="wildcat dim_bins parameter for attention layer 1",
+    # )
+    # parser.add_argument(
+    #     "--dim_bins2",
+    #     "-db2",
+    #     default=1,
+    #     type=int,
+    #     help="wildcat dim_bins parameter for attention layer 2",
+    # )
+    # parser.add_argument(
+    #     "--mode",
+    #     default="eager",
+    #     type=str,
+    #     help="mode for wildcat attention",
+    # )
     # parser.add_argument(
     #     "--q_kernel",
     #     "-q",

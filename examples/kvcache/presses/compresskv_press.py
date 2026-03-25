@@ -101,8 +101,8 @@ class CompressKV(BasePress):
         values = values[..., sink_size: N-window_size, :]
 
         # Reshape keys and values for binning
-        keys = keys.reshape(B, H*bins, bin_N, E)
-        values = values.reshape(B, H*bins, bin_N, D)
+        keys = keys.reshape(B*H*bins, bin_N, E)
+        values = values.reshape(B*H*bins, bin_N, D)
 
 
         compressed_keys, compressed_values, weight_vector = rp_compress(

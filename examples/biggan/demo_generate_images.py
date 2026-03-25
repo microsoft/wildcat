@@ -30,16 +30,15 @@ def get_args():
     parser.add_argument("--seed",type=int, default=1)
     parser.add_argument("--num_splits", "-ns",type=int, default=10)
     parser.add_argument("--batch_size",type=int, default=32)
-    parser.add_argument("--attention",type=str, default='exact', choices=['exact', 'kde', 'kdeformer', 'performer', 'reformer', 'sblocal', 'thinformer', 'wildcat'])
     parser.add_argument("--truncation",type=float, default=0.4)
     parser.add_argument("--no_store",action='store_true')
     parser.add_argument("--fid",action='store_true')
     parser.add_argument("--debug",action='store_true')
     parser.add_argument("--postfix", type=str, default='')
+    # Fast attention arguments
+    parser.add_argument("--attention",type=str, default='exact', choices=['exact', 'kde', 'kdeformer', 'performer', 'reformer', 'sblocal', 'thinformer', 'wildcat'])
     parser.add_argument("--r", "-r", type=int, default=96, help="WildCat rank parameter")
-    parser.add_argument("--mode", type=str, default="eager", help="WildCat mode")
     parser.add_argument("--bins", "-b", type=int, default=8, help="WildCat number of bins")
-    parser.add_argument("--dim_bins", "-db", type=int, default=1, help="WildCat number of dimension bins")
     
     return parser.parse_args()
 
@@ -89,8 +88,7 @@ def main():
     elif attention == 'thinformer':
         model = ThinformerBigGAN.from_pretrained(model_name)
     elif attention == 'wildcat':
-        model = WildCatBigGAN.from_pretrained(model_name, r=args.r,
-                                                    mode=args.mode, bins=args.bins, dim_bins=args.dim_bins)
+        model = WildCatBigGAN.from_pretrained(model_name, r=args.r, num_bins=args.bins)
     else:
         raise NotImplementedError("Invalid attention option")
 
@@ -169,9 +167,8 @@ def main():
             if not os.path.exists(output_path):
                 os.makedirs(output_path)
             tic = time.time()
-            num_images_to_save = 2
-            print(f"saving {num_images_to_save} images....")
-            save_as_images(output_all[:num_images_to_save], output_path + "/img")
+            print(f"saving {data_per_class} images....")
+            save_as_images(output_all[282*data_per_class:283*data_per_class], output_path + "/img")
             print(f"done. ({time.time() - tic:.4f} sec)")
 
 

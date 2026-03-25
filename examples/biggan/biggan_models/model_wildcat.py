@@ -62,7 +62,7 @@ def sn_embedding(eps=1e-12, **kwargs):
 
 class WildCatSelfAttn(nn.Module):
     """ Self attention Layer"""
-    def __init__(self, in_channels, r=1, q_kernel=False, mode="eager", bins=1, dim_bins=1, eps=1e-12):
+    def __init__(self, in_channels, r=1, num_bins=1, eps=1e-12):
         super(WildCatSelfAttn, self).__init__()
         self.in_channels = in_channels
         self.snconv1x1_theta = snconv2d(in_channels=in_channels, out_channels=in_channels//8,
@@ -77,8 +77,8 @@ class WildCatSelfAttn(nn.Module):
         self.softmax  = nn.Softmax(dim=-1)
         self.gamma = nn.Parameter(torch.zeros(1))
         # BigGAN uses scale = 1
-        print(f'Initializing WildCat module with scale=1, r={r}, mode={mode}, bins={bins}, dim_bins={dim_bins}')
-        self.attn = WildCat(scale=1., r=r, mode=mode, bins=bins, dim_bins=dim_bins)
+        print(f'Initializing WildCat module with scale=1, r={r}, num_bins={num_bins}')
+        self.attn = WildCat(scale=1., r=r, num_bins=num_bins)
 
     def fastformer(self, query, key, value):
         query = query.transpose(1,2)
@@ -236,9 +236,8 @@ class Generator(nn.Module):
             if i == config.attention_layer_position:
                 layers.append(WildCatSelfAttn(
                     ch*layer[1], eps=config.eps, 
-                    r=config.r, q_kernel=config.q_kernel, 
-                    mode=config.mode, bins=config.bins, 
-                    dim_bins=config.dim_bins))
+                    r=config.r, 
+                    num_bins=config.bins))
             layers.append(GenBlock(ch*layer[1],
                                    ch*layer[2],
                                    condition_vector_dim,
@@ -278,7 +277,7 @@ class WildCatBigGAN(nn.Module):
     """BigGAN Generator."""
 
     @classmethod
-    def from_pretrained(cls, pretrained_model_name_or_path, r=1, q_kernel=False, mode="eager", bins=1, dim_bins=1, cache_dir=None, *inputs, **kwargs):
+    def from_pretrained(cls, pretrained_model_name_or_path, r=1, num_bins=1, cache_dir=None, *inputs, **kwargs):
         if pretrained_model_name_or_path in PRETRAINED_MODEL_ARCHIVE_MAP:
             model_file = PRETRAINED_MODEL_ARCHIVE_MAP[pretrained_model_name_or_path]
             config_file = PRETRAINED_CONFIG_ARCHIVE_MAP[pretrained_model_name_or_path]
@@ -301,10 +300,7 @@ class WildCatBigGAN(nn.Module):
         config = BigGANConfig.from_json_file(resolved_config_file)
         # Add WildCat-specific args to config
         config.r = r
-        config.q_kernel = q_kernel
-        config.mode = mode
-        config.bins = bins
-        config.dim_bins = dim_bins
+        config.bins = num_bins
         logger.info("Model config {}".format(config))
 
 

@@ -43,8 +43,7 @@ def compress_kv(
     N = keys.shape[-2]
 
     if N <= r:
-        w = torch.ones(keys.shape[0], keys.shape[1], 
-                       device = keys.device, dtype = keys.dtype)
+        w = torch.ones(*keys.shape[:2], device = keys.device, dtype = keys.dtype)
         return keys, values, w
 
     scale = scale or 1 / sqrt(E)
@@ -52,7 +51,8 @@ def compress_kv(
     sqd_knorm = keys.square().sum(dim=-1)
 
     k_scale = sqd_knorm.sqrt().amax(dim = -1, keepdim=True)
-    q_scale = q_scale or k_scale
+    if q_scale is None:
+        q_scale = k_scale
 
     # Shape (B, 1)
     tau = find_kernel_temperature(

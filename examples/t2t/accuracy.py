@@ -82,8 +82,6 @@ method2str = method2
 if method1 == "wildcat":
     # if args.q_kernel:
     #     method1str += "_q"
-    if args.mode:
-        method1str += f"_{args.mode}"
     if args.rank1 is not None:
         method1str += f"_r{args.rank1}"
     if args.bins1 is not None:
@@ -91,8 +89,6 @@ if method1 == "wildcat":
 if method2 == "wildcat":
     # if args.q_kernel:
     #     method2str += "_q"
-    if args.mode:
-        method2str += f"_{args.mode}"
     if args.rank2 is not None:
         method2str += f"_r{args.rank2}"
     if args.bins2 is not None:

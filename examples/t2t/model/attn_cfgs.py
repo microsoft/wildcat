@@ -62,9 +62,9 @@ def get_attn_cfg1(attn1: str, args: ArgumentParser | None = None) -> dict:
             "name": "wildcat",
             "r": args.rank1,
             # "q_kernel": args.q_kernel,
-            "mode": args.mode,
-            "bins": args.bins1,
-            "dim_bins": args.dim_bins1
+            #"mode": args.mode,
+            "num_bins": args.bins1,
+            #"dim_bins": args.dim_bins1
         }
     else:
         raise ValueError(f"Invalid attention method: {attn1}")
@@ -127,9 +127,9 @@ def get_attn_cfg2(attn2: str, args: ArgumentParser | None = None) -> dict:
             "name": "wildcat",
             "r": args.rank2, 
             # "q_kernel": args.q_kernel,
-            "mode": args.mode,
-            "bins": args.bins2,
-            "dim_bins": args.dim_bins2
+            #"mode": args.mode,
+            "num_bins": args.bins2,
+            #"dim_bins": args.dim_bins2
         }
     else:
         raise ValueError(f"Invalid attention method: {attn2}")

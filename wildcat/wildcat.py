@@ -1,8 +1,6 @@
 import torch
 import torch.nn as nn
-import torch.functional as F
 from math import sqrt
-import math
 
 from wildcat.compresskv import compress_kv
 from wildcat.weighted_attention import weighted_attention
@@ -13,10 +11,9 @@ class WildCat(nn.Module):
     def __init__(
         self,
         scale: float | None = None,
-        r: int = 128,
-        mode: str = "eager",
-        bins: int = 1,
-        dim_bins: int = 1,
+        r: int | None = None,
+        num_bins: int = 1,
+        subsample_ratio = 0.25,
         **kwargs: dict,
     ):
         """Initialize the WildCat module.
@@ -25,21 +22,19 @@ class WildCat(nn.Module):
             scale (float): scale for dot-product attention. 
               If `None`, scale is chosen as 1/sqrt(keys.shape[-1]) in forward.
             r (int): number of key-value pairs to select, a nonnegative integer
-            mode (str): if "eager", uses pytorch operations, only.
-            bins (int): number of bins into which the sequence should be divided; 
+            num_bins (int): number of bins into which the sequence should be divided; 
               compression is performed independently on each bin.
-            dim_bins (int): number of bins into which the key features should be divided.
-            kwargs: placeholder for other arguments
+            subsample_ratio (float): proportion of key-value pairs to keep when no r is provided.
         """
         super().__init__()
 
         self.scale = scale
         self.r = r
-        self.mode = mode
-        self.bins = bins
-        self.dim_bins = dim_bins
+        self.num_bins = num_bins
+        self.subsample_ratio = subsample_ratio
 
-    @torch.compile(mode="max-autotune")###mode="reduce-overhead",fullgraph=True)
+    # Compile module for fast inference
+    @torch.compile(mode="max-autotune")
     def forward(
         self,
         queries: torch.Tensor,
@@ -54,13 +49,20 @@ class WildCat(nn.Module):
         queries, keys, values, queries_shape = align_shapes(queries, keys, values)
 
         B, N, E = keys.shape
-        B, M, E = queries.shape
-        B, N, D = values.shape
+        D = values.shape[-1]
 
         # Number of chunks of sequence
-        C = self.bins
-        # Folds along feature dimension
-        F = self.dim_bins
+        C = self.num_bins
+
+        # Determine coreset size per bin
+        # If no coreset size is provided, compress to self.subsample_ratio
+        r = self.r or max(1, int(N* self.subsample_ratio)) # int 
+        remainder = N % C
+        if C > 1:
+            r = r + (-r) % C  # pad to next multiple of C
+            bin_r = r // C # bin_r == r == self.r when C == 1
+        else:
+            bin_r = r
 
         # Scale parameter of self-attention softmax
         scale = scale or self.scale or 1 / sqrt(E)
@@ -73,28 +75,39 @@ class WildCat(nn.Module):
         kbar = keys.mean(dim = -2, keepdim=True)
         keys = keys - kbar
 
-        # We chunk the input sequence and apply the compression algorithm for all chunks in parallel
-        if C > 1:
-            assert N % C == 0, "Sequence length of keys and values must be divisible by number of bins"
-            # Divide key-value pairs into bins
-            bin_r = self.r // C
-            # Unfold bin dimension into batch dimension
-            keys = keys.reshape(B*C, N//C, E)
-            values = values.reshape(B*C, N//C, D)
+        if remainder > 0:
+            keys, remainder_keys = keys.split([N - remainder, remainder], dim=1)
+            values, remainder_values = values.split([N - remainder, remainder], dim=1)
         else:
-            bin_r = self.r
+            remainder_keys = remainder_values = None
 
-        core_keys, core_values, core_one = compress_kv(keys, values, scale, bin_r)
+        keys = keys.reshape(B * C, (N-remainder) // C, E)
+        values = values.reshape(B * C, (N-remainder) // C, D)
 
-        core_keys = core_keys.reshape(B, self.r, E)
-        core_values = core_values.reshape(B, self.r, D)
-        core_one = core_one.reshape(B, self.r)
+        # Core compression routine
+        q_scale = queries.square().sum(dim = -1).sqrt().amax(dim = -1)
+        q_scale = q_scale.reshape(B, 1).expand(B, C).reshape(B*C, 1)
+
+        cmpd_keys, cmpd_values, w = compress_kv(keys, values, bin_r, scale, q_scale)
+        cmpd_keys = cmpd_keys.reshape(B, r, E)
+        cmpd_values = cmpd_values.reshape(B, r, D)
+        w = w.reshape(B, r)
+
+        # Remainder bin
+        # Handle case when sequence can't be chunked into num_bins
+        if remainder_keys is not None:
+            cmpd_remainder_keys, cmpd_remainder_values, remainder_w = compress_kv(
+                    remainder_keys, remainder_values, bin_r, scale, q_scale
+            )
+            cmpd_keys = torch.cat((cmpd_keys, cmpd_remainder_keys), dim = 1)
+            cmpd_values = torch.cat((cmpd_values, cmpd_remainder_values), dim = 1)
+            w = torch.cat((w, remainder_w), dim =1)
+
         # # Reconstruction of attention output.
-        # # TODO: Test other implementation, e.g. via flash-attention
         out = weighted_attention(queries = queries,
-                                 core_keys = core_keys,
-                                 core_values = core_values,
-                                 core_one = core_one,
+                                 core_keys = cmpd_keys,
+                                 core_values = cmpd_values,
+                                 core_one = w,
                                  scale = scale,
                                  min_val = min_val,
                                  max_val = max_val
@@ -126,10 +139,8 @@ def align_shapes(queries, keys, values):
 
     queries_shape = queries.shape
 
-    if len(keys.shape) > 3:
-        """
-        Reshape inputs to (n_batch*n_heads, n_seq, dim)
-        """
+    if len(keys.shape) > 3:      
+        # Reshape inputs to (n_batch*n_heads, n_seq, dim)
         queries = queries.reshape(-1, queries.shape[-2], queries.shape[-1])
         keys = keys.reshape(-1, keys.shape[-2], keys.shape[-1])
         values = values.reshape(-1, values.shape[-2], values.shape[-1])
