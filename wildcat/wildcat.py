@@ -13,7 +13,7 @@ class WildCat(nn.Module):
         scale: float | None = None,
         r: int | None = None,
         num_bins: int = 1,
-        subsample_ratio = 0.25,
+        subsample_ratio: float = 0.25,
         **kwargs: dict,
     ):
         """Initialize the WildCat module.
@@ -34,7 +34,7 @@ class WildCat(nn.Module):
         self.subsample_ratio = subsample_ratio
 
     # Compile module for fast inference
-    @torch.compile(mode="max-autotune")
+    #@torch.compile(mode="max-autotune")
     def forward(
         self,
         queries: torch.Tensor,
@@ -86,7 +86,6 @@ class WildCat(nn.Module):
 
         # Core compression routine
         q_scale = queries.square().sum(dim = -1).sqrt().amax(dim = -1)
-        q_scale = q_scale.reshape(B, 1).expand(B, C).reshape(B*C, 1)
 
         cmpd_keys, cmpd_values, w = compress_kv(keys, values, bin_r, scale, q_scale)
         cmpd_keys = cmpd_keys.reshape(B, r, E)

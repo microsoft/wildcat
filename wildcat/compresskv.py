@@ -53,6 +53,10 @@ def compress_kv(
     k_scale = sqd_knorm.sqrt().amax(dim = -1, keepdim=True)
     if q_scale is None:
         q_scale = k_scale
+    else:
+        B = q_scale.shape[0]
+        C = k_scale.shape[0]//B
+        q_scale = q_scale.reshape(B, 1).expand(B, C).reshape(B*C, 1)
 
     # Shape (B, 1)
     tau = find_kernel_temperature(
