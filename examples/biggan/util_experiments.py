@@ -68,10 +68,7 @@ def get_base_parser() -> argparse.ArgumentParser:
                         help="KH-Compress oversampling factor" \
                             "If None, use the default value in the model config JSON file")
     parser.add_argument("--r", "-r", type=int, default=96, help="wildcat rank parameter")
-    parser.add_argument("--q_kernel", action="store_true", help="Use key-query kernel for wildcat instead of keys-only kernel?")
-    parser.add_argument("--mode", type=str, default="eager", help="wildcat mode")
     parser.add_argument("--bins", "-b", type=int, default=8, help="wildcat number of bins")
-    parser.add_argument("--dim_bins", "-db", type=int, default=1, help="wildcat number of dimension bins")
     return parser
 
 
@@ -117,7 +114,7 @@ def load_checkpoint(
 # Load model using specified attention method
 def get_model(
     model_name: str, attention: str, g: int | None = None,
-    r: int = 1, q_kernel: bool = False, mode: str = "eager", bins: int = 1, dim_bins: int = 1
+    r: int = 1, bins: int = 1
 ) -> torch.nn.Module:
     """Load the T2T-ViT model with the specified attention methods.
     Args:
@@ -125,10 +122,7 @@ def get_model(
         attention: str, attention method to use
         g: int, oversampling factor for KH-Compress. If None, use the default value in the model config JSON file.
         r: int, rank parameter for wildcat
-        q_kernel: bool, whether to use key-query kernel for wildcat instead of keys-only kernel
-        mode: str, mode for wildcat
         bins: int, number of bins for wildcat
-        dim_bins: int, number of dimension bins for wildcat
     Returns:
         model: torch.nn.Module, the loaded model
     """
@@ -149,7 +143,7 @@ def get_model(
     elif attention == 'thinformer':
         model = ThinformerBigGAN.from_pretrained(model_name, g=g)
     elif attention == 'wildcat':
-        model = WildCatBigGAN.from_pretrained(model_name, r=r, mode=mode, bins=bins, dim_bins=dim_bins)
+        model = WildCatBigGAN.from_pretrained(model_name, r=r, num_bins=bins)
     else:
         raise NotImplementedError("Invalid attention option")
     return model

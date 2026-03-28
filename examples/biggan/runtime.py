@@ -55,14 +55,11 @@ num_classes = args.num_classes
 data_per_class = args.data_per_class
 g = args.g
 r = args.r
-q_kernel = args.q_kernel
-mode = args.mode
 bins = args.bins
-dim_bins = args.dim_bins
 
 print("Loading model...")
 dtype = torch.float16 if args.fp16 else torch.float32
-model = get_model(model_name, attention, g=g, r=r, q_kernel=q_kernel, mode=mode, bins=bins, dim_bins=dim_bins)
+model = get_model(model_name, attention, g=g, r=r, bins=bins)
 print(f'type(model): {type(model)}')
 
 # quit()
