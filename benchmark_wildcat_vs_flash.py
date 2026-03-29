@@ -62,6 +62,20 @@ def warmup(batch_size, seq_len, head_size, dim, attn, n_warmup=3):
             wildcat_fwd(attn, q, k, v)
     torch.cuda.synchronize()
 
+def warmup_flash(batch_size, seq_len, head_size, dim, n_warmup=3):
+    q, k, v = get_tensors(batch_size, seq_len, head_size, dim)
+    for _ in range(n_warmup):
+        with torch.no_grad():
+            flash_fwd(q, k, v)
+    torch.cuda.synchronize()
+
+def warmup_wildcat(batch_size, seq_len, head_size, dim, attn, n_warmup=3):
+    q, k, v = get_tensors(batch_size, seq_len, head_size, dim)
+    for _ in range(n_warmup):
+        with torch.no_grad():
+            wildcat_fwd(attn, q, k, v)
+    torch.cuda.synchronize()
+
 
 # ---------------------------------------------------------------------------
 # Timed benchmarks
@@ -147,32 +161,72 @@ def run_param_sweep(seq_lens, batch_size, head_size, dim, n_warmup=3,
     print(f"\nResults saved to {output_file}")
 
 
-def collect_timed_results(args):
-    """Run the timing benchmark for all seq_lens and collect results in a dict."""
+def benchmarking_table(args, output_file="benchmarking_table/results.txt"):
     seq_lens = [2**i for i in range(10, args.log_2_max_len)]
     batch_size = args.batch_size
     head_size  = args.head_size
     dim        = args.dim
     num_bins   = [2**i for i in range(4, args.log_2_max_bins)]
-    r = [2**i*bins for i in range(2, 4) for bins in num_bins]
 
-    for seq_len in seq_lens:
-        # Build a fresh WildCat for this seq_len
-        attn = WildCat(r=args.r, num_bins=args.num_bins).to(device="cuda", dtype=torch.bfloat16)
+    col = f"{'seq_len':^10}  {'method':^12}  {'r':^8}  {'num_bins':^10}  {'p20 (ms)':^10}  {'median (ms)':^12}  {'p80 (ms)':^10}  {'max_abs_error':^15}"
+    separator = "-" * len(col)
 
-        # Non-timed warm-up — forces Triton JIT compilation for this seq_len
-        print(f"  [warmup] seq_len={seq_len} ...", end="\r", flush=True)
-        warmup(batch_size, seq_len, head_size, dim, attn, n_warmup=args.n_warmup)
+    def emit(line, f):
+        print(line)
+        f.write(line + "\n")
 
-        # Timed runs
-        flash_ms   = bench_flash(batch_size, seq_len, head_size, dim,
-                                  warmup_iters=args.warmup, rep=args.rep)
-        wildcat_ms = bench_wildcat(attn, batch_size, seq_len, head_size, dim,
-                                    warmup_iters=args.warmup, rep=args.rep)
+    with open(output_file, "w") as f:
+        emit(col, f)
+        emit(separator, f)
 
-        print(f"{seq_len:<10}  {'flash':<12}  {flash_ms[0]:>10.4f}  {flash_ms[1]:>12.4f}  {flash_ms[2]:>10.4f}")
-        print(f"{seq_len:<10}  {'wildcat':<12}  {wildcat_ms[0]:>10.4f}  {wildcat_ms[1]:>12.4f}  {wildcat_ms[2]:>10.4f}")
-    return results
+        for seq_len in seq_lens:
+            print(f"running seq_len={seq_len} ...", end="\r", flush=True)
+            warmup_flash(batch_size, seq_len, head_size, dim, n_warmup=args.n_warmup)
+            flash_ms   = bench_flash(batch_size, seq_len, head_size, dim,
+                                            warmup_iters=args.warmup, rep=args.rep)
+            emit(f"{seq_len:<10}  {'flash':<12}  {'-':^8}  {'-':^10}  {flash_ms[0]:>10.4f}  {flash_ms[1]:>12.4f}  {flash_ms[2]:>10.4f}  {'-':^15}", f)
+        
+        for bins in num_bins:
+            rs = [2**i * bins for i in range(1, 4)]
+            for r in rs:
+                attn = WildCat(r=r, num_bins=bins).to(device="cuda", dtype=torch.bfloat16)
+                for seq_len in seq_lens:
+                    warmup_wildcat(batch_size, seq_len, head_size, dim, attn, n_warmup=args.n_warmup)
+                    # Timed runs
+                    wildcat_ms = bench_wildcat(attn, batch_size, seq_len, head_size, dim,
+                                                warmup_iters=args.warmup, rep=args.rep)
+                    err = max_entry_error(attn, batch_size, seq_len, head_size, dim)
+                    emit(f"{seq_len:<10}  {'wildcat':<12}  {r:^8}  {bins:^10}  {wildcat_ms[0]:>10.4f}  {wildcat_ms[1]:>12.4f}  {wildcat_ms[2]:>10.4f}  {err:^15.6f}", f)
+
+    print(f"\nResults saved to {output_file}")
+
+
+# def collect_timed_results(args):
+#     """Run the timing benchmark for all seq_lens and collect results in a dict."""
+#     seq_lens = [2**i for i in range(10, args.log_2_max_len)]
+#     batch_size = args.batch_size
+#     head_size  = args.head_size
+#     dim        = args.dim
+#     num_bins   = [2**i for i in range(4, args.log_2_max_bins)]
+#     r = [2**i*bins for i in range(2, 4) for bins in num_bins]
+
+#     for seq_len in seq_lens:
+#         # Build a fresh WildCat for this seq_len
+#         attn = WildCat(r=args.r, num_bins=args.num_bins).to(device="cuda", dtype=torch.bfloat16)
+
+#         # Non-timed warm-up — forces Triton JIT compilation for this seq_len
+#         print(f"  [warmup] seq_len={seq_len} ...", end="\r", flush=True)
+#         warmup(batch_size, seq_len, head_size, dim, attn, n_warmup=args.n_warmup)
+
+#         # Timed runs
+#         flash_ms   = bench_flash(batch_size, seq_len, head_size, dim,
+#                                   warmup_iters=args.warmup, rep=args.rep)
+#         wildcat_ms = bench_wildcat(attn, batch_size, seq_len, head_size, dim,
+#                                     warmup_iters=args.warmup, rep=args.rep)
+
+#         print(f"{seq_len:<10}  {'flash':<12}  {flash_ms[0]:>10.4f}  {flash_ms[1]:>12.4f}  {flash_ms[2]:>10.4f}")
+#         print(f"{seq_len:<10}  {'wildcat':<12}  {wildcat_ms[0]:>10.4f}  {wildcat_ms[1]:>12.4f}  {wildcat_ms[2]:>10.4f}")
+#     return results
 
 # ---------------------------------------------------------------------------
 # Main
@@ -195,6 +249,10 @@ def get_arguments():
                         help="Timed repetitions for triton.testing.do_bench")
     parser.add_argument("--n_warmup", type=int, default=3,
                         help="Untimed warm-up runs before benchmarking each seq_len")
+    parser.add_argument("--log_2_max_len", type=int, default=16,
+                        help="Max sequence length to benchmark is 2^LOG_2_MAX_LEN (default: 15, i.e. 32768)")
+    parser.add_argument("--log_2_max_bins", type=int, default=7,
+                        help="Max num_bins to sweep is 2^LOG_2_MAX_BINS (default: 7, i.e. 128)")
     parser.add_argument("--error", action="store_true",
                         help="Run max-entry error sweep instead of timing benchmark")
     parser.add_argument("--param_sweep", action="store_true",
@@ -229,6 +287,11 @@ def main():
                         output_file=args.param_sweep_out)
         return
 
+    benchmark = True
+    if benchmark:
+        benchmarking_table(args, output_file="benchmarking_table/results.txt")
+        return
+    
     # ---- Timing benchmark ----
     col = f"{'seq_len':<10}  {'method':<12}  {'p20 (ms)':>10}  {'median (ms)':>12}  {'p80 (ms)':>10}"
     print(col)
