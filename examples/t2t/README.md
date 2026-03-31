@@ -49,7 +49,7 @@ pip install numpy matplotlib pandas tabulate
 # Install thinformer
 pip install git+https://github.com/microsoft/thinformer.git
 # Install wildcat
-pip install -e ../../../wildcat
+pip install git+https://github.com/microsoft/wildcat.git
 # Restrict setuptools to ensure pkg_resources exists (>=82 breaks Lightning 1.x)
 pip install "setuptools<82"
 ```
@@ -76,8 +76,8 @@ pip install einops lightning lightning-bolts
 pip install numpy matplotlib pandas tabulate
 # Install thinformer
 pip install git+https://github.com/microsoft/thinformer.git
-# Install compressed attention
-pip install -e ../../../wildcat
+# Install wildcat
+pip install git+https://github.com/microsoft/wildcat.git
 # Restrict setuptools to ensure pkg_resources exists (>=82 breaks Lightning 1.x)
 pip install "setuptools<82"
 ```
