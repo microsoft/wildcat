@@ -2,4 +2,5 @@
 - Update file name compresskv_press.py -> compress_kv_press.py
 - Update file name compresskv.py -> compress_kv.py
 - Inside of __init.py__ we can include some of the more important functions like from .compresskv import compress_kv and from .weighted_attention import weighted_attention.  Then, future users can write, from wildcat import compress_kv in their code (instead of having to write from wildcat.compresskv import compress_kv)
-- Update main README with more info / pointer to paper / citation block
+- Update main README with more info / pointer to paper / citation block / cool figure
+- Check that wildcat image in paper can be generated with current code
