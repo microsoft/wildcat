@@ -34,7 +34,7 @@ class WildCat(nn.Module):
         self.subsample_ratio = subsample_ratio
 
     # Compile module for fast inference
-    #@torch.compile(mode="max-autotune")
+    @torch.compile(mode="max-autotune")
     def forward(
         self,
         queries: torch.Tensor,

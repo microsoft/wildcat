@@ -9,7 +9,7 @@ To ensure correct file paths, navigate to wildcat/examples/kvcache
 To prepare a conda environment with all dependencies:
 
 ```bash
-conda create -n kvpress python=3.12
+yes | conda create -n kvpress python=3.12
 conda activate kvpress
 pip install -r requirements.txt
 pip install -e ../../../wildcat
