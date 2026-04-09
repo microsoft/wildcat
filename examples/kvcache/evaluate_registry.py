@@ -33,7 +33,7 @@ from kvpress import (
     TOVAPress,
 )
 
-from presses.compresskv_press import CompressKV
+from presses.compress_kv_press import CompressKV
 from presses.balance_press import BalanceKVPress
 from presses.uniform_press import UniformPress
 
