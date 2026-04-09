@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 from math import sqrt
 
-from wildcat.compress_kv import compress_kv
-from wildcat.weighted_attention import weighted_attention
+from wildcat import compress_kv
+from wildcat import weighted_attention
 
 class WildCat(nn.Module):
     """Implementation of WildCat module."""
