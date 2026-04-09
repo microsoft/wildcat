@@ -7,7 +7,7 @@ from typing import Optional, Dict, Any, Tuple
 from dataclasses import dataclass
 import types
 
-from wildcat.compresskv import compress as rp_compress
+from wildcat.compress_kv import compress as rp_compress
 
 from transformers.models.qwen2.modeling_qwen2 import apply_rotary_pos_emb, ALL_ATTENTION_FUNCTIONS, eager_attention_forward
 import math

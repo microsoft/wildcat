@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from math import sqrt
 
-from wildcat.compresskv import compress_kv
+from wildcat.compress_kv import compress_kv
 from wildcat.weighted_attention import weighted_attention
 
 class WildCat(nn.Module):
