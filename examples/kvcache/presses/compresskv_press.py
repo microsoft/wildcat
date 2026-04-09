@@ -7,8 +7,6 @@ from typing import Optional, Dict, Any, Tuple
 from dataclasses import dataclass
 import types
 
-from transformers.cache_utils import DynamicCache
-
 from wildcat.compresskv import compress as rp_compress
 
 from transformers.models.qwen2.modeling_qwen2 import apply_rotary_pos_emb, ALL_ATTENTION_FUNCTIONS, eager_attention_forward
@@ -305,48 +303,3 @@ def custom_attention_forward(
         attn_output = attn_output.reshape(*input_shape, -1).contiguous()
         attn_output = self.o_proj(attn_output)
         return attn_output, attn_weights
-
-
-# --------------- Function to load failure cases for debugging --------------- #
-import os
-import pickle
-SAVE_DIR = "./kvpress/evaluation/debug_dump"
-
-def load_failure_context(filename="failure_85132_148_compress_kv.pkl"):
-    with open(os.path.join(SAVE_DIR, filename), "rb") as f:
-        dump = pickle.load(f)
-
-    # Restore RNG state
-    torch.set_rng_state(dump["rng_state_cpu"])
-    if dump["rng_state_cuda"] is not None:
-        torch.cuda.set_rng_state_all(dump["rng_state_cuda"])
-
-    context = dump["context"]
-    questions = dump["questions"]
-    answer_prefix = dump.get("answer_prefix")
-    max_new_tokens = dump.get("max_new_tokens")
-    max_context_length = dump.get("max_context_length")
-
-    print("[!] RNG states restored")
-    return context, questions, answer_prefix, max_new_tokens, max_context_length
-
-
-if __name__ == "__main__":
-    from transformers import pipeline
-
-    model_name = "Qwen/Qwen2.5-7B-Instruct"
-    device = "cuda:2"
-
-    pipe = pipeline("kv-press-text-generation", model=model_name, device=device)
-    press = CompressKV(0.9, chunk_size = 16000)
-
-    context, question, answer_prefix, max_new_tokens, max_context_length = load_failure_context("failure_85132_148_compress_kv.pkl")
-    answer = pipe(context, 
-                questions=question, 
-                answer_prefix=answer_prefix, 
-                max_new_tokens = max_new_tokens, 
-                max_context_length = max_context_length,
-                press=press)["answers"]
-    #print("Context:", context)
-    print("Question:", question)
-    print("Answer:", answer)
