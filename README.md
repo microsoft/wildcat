@@ -70,7 +70,7 @@ output = attn(queries, keys, values)  # shape: (B, H, N, D)
 The `compress_kv` function can also be used standalone to compress a KV cache:
 
 ```python
-from wildcat import compress_kv
+from wildcat.compress_kv import compress_kv
 
 cmpd_keys, cmpd_values, weights = compress_kv(keys, values, r=128)
 ```
@@ -101,7 +101,9 @@ See [examples/kvcache/README.md](examples/kvcache/README.md) for setup and run i
 
 ## How It Works
 The goal of WildCat is the approximation of the softmax (or scaled dot-product) attention mechanism
-$$\text{Attn}(Q, K, V) = \text{softmax}\!\left(\beta Q  K^\top \right) V$$
+
+$$\text{Attn}(Q, K, V) = \text{softmax}\left(\beta Q  K^\top \right) V$$
+
 for $Q, K, V\in \mathbb R^{n\times d}$ and scale parameter $\beta = \sqrt{d}^{-1}$. Computing $\text{Attn}(Q, K, V)$ exactly requires evaluating all $n^2$ entries of the attention matrix $A = \exp\left(\beta Q  K^\top\right)$, giving quadratic time complexity in the sequence length $n$. WildCat avoids this cost by finding a **low-rank approximation** $\widehat{A} = \exp\left(\beta Q  K_{\mathcal S}^\top\right) W$ with $W \in \mathbb R^{r\times n}$ and $K_{\mathcal S}$ a small subset of $r$ rows of $K$. This factorisation reduces approximate attention to $O(nr)$ operations:
 $$
 \widehat{\text{Attn}}(Q, K, V) = \frac{\exp\left(\beta Q  K_{\mathcal S}^\top \right) (W V)}{\exp\left(\beta Q  K_{\mathcal S}^\top\right) (W\boldsymbol 1_{n})}
