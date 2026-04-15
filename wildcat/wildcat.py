@@ -14,7 +14,7 @@ class WildCat(nn.Module):
         r: int | None = None,
         num_bins: int = 1,
         subsample_ratio: float = 0.25,
-        compile: bool = True,
+        precompile: bool = True,
         **kwargs: dict,
     ):
         """Initialize the WildCat module.
@@ -35,7 +35,7 @@ class WildCat(nn.Module):
         self.num_bins = num_bins
         self.subsample_ratio = subsample_ratio
 
-        if compile:
+        if precompile:
             self.forward = torch.compile(self.forward, mode="max-autotune")
 
     def forward(
