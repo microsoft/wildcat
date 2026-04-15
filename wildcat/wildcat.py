@@ -14,17 +14,19 @@ class WildCat(nn.Module):
         r: int | None = None,
         num_bins: int = 1,
         subsample_ratio: float = 0.25,
+        compile: bool = True,
         **kwargs: dict,
     ):
         """Initialize the WildCat module.
 
         Args:
-            scale (float): scale for dot-product attention. 
+            scale (float): scale for dot-product attention.
               If `None`, scale is chosen as 1/sqrt(keys.shape[-1]) in forward.
             r (int): number of key-value pairs to select, a nonnegative integer
-            num_bins (int): number of bins into which the sequence should be divided; 
+            num_bins (int): number of bins into which the sequence should be divided;
               compression is performed independently on each bin.
             subsample_ratio (float): proportion of key-value pairs to keep when no r is provided.
+            compile (bool): whether to compile the forward pass with torch.compile for fast inference.
         """
         super().__init__()
 
@@ -33,8 +35,9 @@ class WildCat(nn.Module):
         self.num_bins = num_bins
         self.subsample_ratio = subsample_ratio
 
-    # Compile module for fast inference
-    @torch.compile(mode="max-autotune")
+        if compile:
+            self.forward = torch.compile(self.forward, mode="max-autotune")
+
     def forward(
         self,
         queries: torch.Tensor,
