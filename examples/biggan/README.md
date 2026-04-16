@@ -1,6 +1,8 @@
 # Image Generation with BigGAN Model
 
-This example folder recreates the BigGAN image generation experiment of [WildCat: Near-Linear Attention in Theory and Practice](https://arxiv.org/abs/2602.10056).
+This example folder recreates the BigGAN image generation experiment  of [WildCat: Near-Linear Attention in Theory and Practice](https://arxiv.org/abs/2602.10056).
+
+All scripts should be run from this directory.
 
 ## Prerequisites
 
