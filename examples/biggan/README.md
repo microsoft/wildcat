@@ -1,6 +1,6 @@
 # Image Generation with BigGAN Model
 
-This example folder recreates the BigGAN image generation experiment.
+This example folder recreates the BigGAN image generation experiment of [WildCat: Near-Linear Attention in Theory and Practice](https://arxiv.org/abs/2602.10056).
 
 ## Prerequisites
 
@@ -15,26 +15,25 @@ pip install boto3 requests scipy
 
 ## Results
 
-Please follow the steps below to recreate the BigGAN experiment:
+Please follow the steps below to recreate the BigGAN experiment.
 
-Navigate to wildcat/examples/biggan
-
-To compute FID and IS scores, please run:
+To generate images and compute FID and IS scores for each attention approximation, please run:
 
 ```bash
 bash generate.sh
 ```
 
-To test wildcat, only, please run:
-
-```bash
-python demo_generate_images.py --fid --attention wildcat
-```
-
 > \[!TIP\]
 > The FID and IS scores are outputed to the console and to `fid_score_results.txt`.
 
-To compute runtimes, please run:
+> \[!TIP\]
+> You can evaluate the WildCat attention approximation in isolation using
+> 
+> ```bash
+> python demo_generate_images.py --fid --attention wildcat
+> ```
+
+To compute runtimes for each attention approximation, please run:
 
 ```bash
 bash runtime.sh
