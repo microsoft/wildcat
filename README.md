@@ -18,13 +18,13 @@
 
 ## Overview
 
-WildCat (Weighted Iterative Low-rank Decomposition for Coreset ATtention) is a high-accuracy, low-cost drop-in attention module that approximates scaled dot-product attention in near-linear time. The core of WildCat is `compress_kv`, an online compression algorithm of the key-value sequence into a small weighted coreset, from which the full attention output is reconstructed in near-linear time. WildCat can be used to either accelerate non-causal attention at inference time, or to compress a pre-computed KV cache to near-constant size.
+WildCat (Weighted Iterative Low-rank Decomposition for Coreset ATtention) is a drop-in replacement for scaled dot-product attention that faithfully approximates exact attention in near-linear time. The core of WildCat is `compress_kv`, an efficient algorithm for compressing the key-value sequence into a small weighted coreset. WildCat can be used to either accelerate non-causal attention at inference time or to compress a pre-computed KV cache to near-constant size.
 
 ---
 
 ## Installation
 
-WildCat was tested with Python < 3.13. Install directly from GitHub:
+WildCat was tested with Python 3.12. Install directly from GitHub:
 
 ```bash
 pip install git+https://github.com/microsoft/wildcat.git
@@ -34,17 +34,16 @@ Or clone and install locally:
 
 ```bash
 git clone https://github.com/microsoft/wildcat.git
-cd wildcat
-pip install -e .
+pip install -e wildcat
 ```
 
-The installation will also install `torch` as a dependency.
+The `torch` and `numpy` dependencies will be installed automatically.
 
 ---
 
 ## Usage
 
-The WildCat module can be used as drop-in replacement for standard attention implementations at inference time. At the present time, training and causal masking are not natively supported.
+The WildCat module can be used as drop-in replacement for standard attention implementations at inference time. Causal masking is not yet supported.
 
 ```python
 import torch
@@ -79,23 +78,12 @@ cmpd_keys, cmpd_values, weights = compress_kv(keys, values, r=128)
 
 ## Examples
 
-All example experiment scripts live under `examples/`. Navigate into each subfolder and follow the setup instructions before running commands. We tested WildCat on image generation, image classification, and KV cache compression for long context language understanding tasks. 
+We tested WildCat on image generation, image classification, and KV cache compression for long context language understanding tasks. 
+To replicate an experiment, navigate to the corresponding [examples](examples) subfolder and follow the setup instructions. 
 
-#### BigGAN Image Generation
-
-See [examples/biggan/README.md](examples/biggan/README.md) for setup and run instructions.
-
----
-
-#### T2T-ViT ImageNet Classification
-
-See [examples/t2t/README.md](examples/t2t/README.md) for setup and run instructions.
-
----
-
-#### KV Cache Compression for long context language processing
-
-See [examples/kvcache/README.md](examples/kvcache/README.md) for setup and run instructions.
+- BigGAN Image Generation: [examples/biggan](examples/biggan) 
+- T2T-ViT ImageNet Classification: [examples/t2t](examples/t2t) 
+- KV Cache Compression for long-context language understanding: [examples/kvcache](examples/kvcache) 
 
 ---
 
@@ -127,6 +115,20 @@ The coreset indices $\mathcal S\subseteq \{1, 2, \dots, n\}$ and the Nyström we
 
 ---
 
+## Citation
+
+[WildCat: Near-Linear Attention in Theory and Practice](https://arxiv.org/abs/2602.10056)
+
+```bibtex
+@article{schroder2026wildcat,
+  title={WildCat: Near-Linear Attention in Theory and Practice},
+  author={Schr{\"o}der, Tobias and Mackey, Lester},
+  journal={arXiv preprint arXiv:2602.10056},
+  year={2026}
+}
+```
+
+---
 
 ## License
 
