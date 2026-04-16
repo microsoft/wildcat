@@ -1,8 +1,8 @@
 # ImageNet Classification with T2T-ViT model
 
-This example folder recreates the T2T-ViT ImageNet classification experiments.
+This example folder recreates the T2T-ViT ImageNet classification experiments of [WildCat: Near-Linear Attention in Theory and Practice](https://arxiv.org/abs/2602.10056).
 
-To ensure correct file paths, navigate to wildcat/examples/t2t in the terminal
+All scripts should be run from this directory.
 
 ## Prerequisites
 
