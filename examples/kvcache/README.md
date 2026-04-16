@@ -1,8 +1,8 @@
 # KV Cache Compression
 
-This example folder recreates the KV cache compression experiments.
+This example folder recreates the KV cache compression experiments of [WildCat: Near-Linear Attention in Theory and Practice](https://arxiv.org/abs/2602.10056).
 
-To ensure correct file paths, navigate to wildcat/examples/kvcache
+All scripts should be run from this directory.
 
 ## Dependencies
 
@@ -19,16 +19,16 @@ pip install levenshtein
 
 ## Resultsat
 
-To obtain the quality numbers for all methods, please run:
-
-```bash
-bash benchmark.sh
-```
-
-To test compresskv, run:
+To test `compress_kv` in isolation, please run:
 
 ```bash
 python evaluate.py --config_file evaluate_config.yaml --press_name compress_kv_12
+```
+
+To obtain the evaluate all KV cache compression methods, please run:
+
+```bash
+bash benchmark.sh
 ```
 
 To generate a LaTeX results table, please run:
