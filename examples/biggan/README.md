@@ -30,9 +30,6 @@ bash generate.sh
 > \[!TIP\]
 > The FID and IS scores are outputed to the console and to `fid_score_results.txt`.
 
-> \[!TIP\]
-> 
-
 To compute runtimes for each attention approximation, please run:
 
 ```bash
