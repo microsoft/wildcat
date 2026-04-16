@@ -15,7 +15,11 @@ pip install boto3 requests scipy
 
 ## Results
 
-Please follow the steps below to recreate the BigGAN experiment.
+To test WildCat in isolation, please run:
+
+```bash
+python demo_generate_images.py --fid --attention wildcat
+```
 
 To generate images and compute FID and IS scores for each attention approximation, please run:
 
@@ -27,11 +31,7 @@ bash generate.sh
 > The FID and IS scores are outputed to the console and to `fid_score_results.txt`.
 
 > \[!TIP\]
-> You can evaluate the WildCat attention approximation in isolation using
 > 
-> ```bash
-> python demo_generate_images.py --fid --attention wildcat
-> ```
 
 To compute runtimes for each attention approximation, please run:
 
