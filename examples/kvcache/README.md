@@ -17,7 +17,7 @@ pip install kvpress==0.3.0
 pip install levenshtein
 ```
 
-## Resultsat
+## Results
 
 To test `compress_kv` in isolation, please run:
 
@@ -25,7 +25,7 @@ To test `compress_kv` in isolation, please run:
 python evaluate.py --config_file evaluate_config.yaml --press_name compress_kv_12
 ```
 
-To obtain the evaluate all KV cache compression methods, please run:
+To evaluate all KV cache compression methods, please run:
 
 ```bash
 bash benchmark.sh
