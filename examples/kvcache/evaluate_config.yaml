@@ -8,7 +8,7 @@ dataset: "longbench-e"                                 # see DATASET_REGISTRY in
 data_dir: "qasper_e"                                # Include _e suffix for longbench-e # Subdirectory of the dataset (if applicable) else leave "null"
 
 press_name: "no_press"                                # see PRESS_REGISTRY in evaluate_registry.py
-compression_ratio: 0.75                   # Warning: this is the fraction of points NOT kept # Compression ratio for the press (0.0 to 1.0) 
+compression_ratio: 0.75                   # Warning: this is the fraction of points NOT kept # Compression ratio for the press (0.0 to 1.0)
 key_channel_compression_ratio: null                # For ThinKPress and ComposedPress (0.0 to 1.0)
 
 fraction: 1.0                            # Fraction of dataset to evaluate (0.0 to 1.0), for quick testing
@@ -22,5 +22,5 @@ device: cuda  # Device to use (null = auto-detect, "cuda:0", "cpu", etc.)
 # You can add any model kwargs here.
 model_kwargs:
   attn_implementation: null
-  torch_dtype: "auto"
+  dtype: "auto"
   

@@ -4,11 +4,14 @@ for device in {0..3}; do
   for index in "${!data_dirs[@]}"
   do
     if [ $((index % 4)) -eq $device ]; then
-    for press in "${presses[@]}"
-    do
-      CMD="export CUDA_VISIBLE_DEVICES=$device; python evaluate.py --config_file evaluate_config.yaml --data_dir ${data_dirs[$index]} --press_name $press"
-      echo $CMD
-      eval $CMD
+    # compression_ratio = fraction of points NOT preserved
+    for compression_ratio in 0.75 0.875 0.9375; do
+      for press in "${presses[@]}"
+      do
+        CMD="export CUDA_VISIBLE_DEVICES=$device; python evaluate.py --config_file evaluate_config.yaml --data_dir ${data_dirs[$index]} --press_name $press --compression_ratio $compression_ratio"
+        echo $CMD
+        eval $CMD
+      done
     done
     fi
   done &

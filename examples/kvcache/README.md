@@ -12,7 +12,7 @@ To prepare a conda environment with all dependencies:
 yes | conda create -n kvpress python=3.12
 conda activate kvpress
 pip install -r requirements.txt
-pip install -e ../../../wildcat
+pip install git+https://github.com/microsoft/wildcat.git
 pip install kvpress==0.3.0
 pip install levenshtein
 ```
@@ -35,4 +35,17 @@ To generate a LaTeX results table, please run:
 
 ```bash
 python table.py
+```
+
+To compute the average entry growth parameter gamma(n) as a function of the sequence length n
+for Qwen2.5-7B on the QASPER-E dataset, please run:
+
+```bash
+python compute_qk_norms.py
+```
+
+To compare the prefill time for CompressKV and SnapKV, please run:
+
+```bash
+python prefill.py
 ```

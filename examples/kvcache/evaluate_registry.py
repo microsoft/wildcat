@@ -33,7 +33,7 @@ from kvpress import (
     TOVAPress,
 )
 
-from presses.compress_kv_press import CompressKV
+from presses.compress_kv_press import CompressKVPress
 from presses.balance_press import BalanceKVPress
 from presses.uniform_press import UniformPress
 
@@ -65,6 +65,7 @@ PRESS_REGISTRY = {
     "adakv_expected_attention": AdaKVPress(ExpectedAttentionPress()),
     "adakv_expected_attention_e2": AdaKVPress(ExpectedAttentionPress(epsilon=1e-2)),
     "adakv_snapkv": AdaKVPress(SnapKVPress()),
+    "balance_kv": BalanceKVPress(),
     "block_keydiff": BlockPress(press=KeyDiffPress(), block_size=128),
     "chunkkv": ChunkKVPress(press=SnapKVPress(), chunk_length=20),
     "critical_adakv_expected_attention": CriticalAdaKVPress(ExpectedAttentionPress(use_vnorm=False)),
@@ -87,11 +88,10 @@ PRESS_REGISTRY = {
     "streaming_llm": StreamingLLMPress(),
     "think": ThinKPress(),
     "tova": TOVAPress(),
-    "balance_kv": BalanceKVPress(),
     "uniform": UniformPress(),
     "no_press": None,
 }
 
-# Append compress_kv presses
+# Append CompressKVPresses
 for r in range(1, 12 + 1):
-    PRESS_REGISTRY[f"compress_kv_{r}"] = CompressKV(bin_r=r)
+    PRESS_REGISTRY[f"compress_kv_{r}"] = CompressKVPress(bin_r=r)
