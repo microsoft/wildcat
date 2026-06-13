@@ -120,11 +120,13 @@ The coreset indices $\mathcal S\subseteq \{1, 2, \dots, n\}$ and the Nyström we
 [WildCat: Near-Linear Attention in Theory and Practice](https://arxiv.org/abs/2602.10056)
 
 ```bibtex
-@article{schroder2026wildcat,
-  title={WildCat: Near-Linear Attention in Theory and Practice},
-  author={Schr{\"o}der, Tobias and Mackey, Lester},
-  journal={arXiv preprint arXiv:2602.10056},
-  year={2026}
+@inproceedings{
+schroder2026wildcat,
+title={WildCat: Near-Linear Attention in Theory and Practice},
+author={Schr{\"o}der, Tobias and Mackey, Lester},
+booktitle={Forty-third International Conference on Machine Learning},
+year={2026},
+url={https://openreview.net/forum?id=lfqyLp4hZm}
 }
 ```
 
