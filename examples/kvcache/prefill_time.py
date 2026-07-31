@@ -20,7 +20,7 @@ from transformers.utils.logging import disable_progress_bar
 import transformers
 
 from kvpress.presses.snapkv_press import SnapKVPress
-from presses.compresskv_press import CompressKV
+from presses.compresskv_press import CompressKVPress
 
 warnings.filterwarnings("ignore")
 transformers.logging.set_verbosity_error()
@@ -94,7 +94,7 @@ r = 12
 compression_ratios = [0.75] 
 for n_tokens in [32_000]: 
     prefilling_stats = {compression_ratio : get_prefilling_stats(
-        press=CompressKV(bin_r=r, compression_ratio=compression_ratio), n_tokens=n_tokens)
+        press=CompressKVPress(bin_r=r, compression_ratio=compression_ratio), n_tokens=n_tokens)
                         for compression_ratio in tqdm(compression_ratios)}
     generation_stats = None
     compresskv_stats[n_tokens] = combine_stats(prefilling_stats, generation_stats)

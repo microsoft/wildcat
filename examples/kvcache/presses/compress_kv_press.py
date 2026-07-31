@@ -13,7 +13,7 @@ from transformers.models.qwen2.modeling_qwen2 import apply_rotary_pos_emb, ALL_A
 import math
 
 @dataclass
-class CompressKV(BasePress):
+class CompressKVPress(BasePress):
     """
     Custom press that subsamples KV cache and applies random weighting vectors
     to the attention mechanism.
@@ -234,8 +234,7 @@ def custom_attention_forward(
                                                                      torch.amax(value_states, dim=-2, keepdim=True))
             self._buffers[f"vmin_layer_{layer_idx}"] = torch.minimum(self._buffers[f"vmin_layer_{layer_idx}"], 
                                                                      torch.amin(value_states, dim=-2, keepdim=True))
-            ###self._buffers[f"vbar_layer_{layer_idx}"] = (self._buffers[f"vmax_layer_{layer_idx}"] + self._buffers[f"vmin_layer_{layer_idx}"])/2
-
+            
         values_shape = value_states.shape
         if cache_position[-1] > query_states.shape[-2]:
             # After prefilling, concat ones vector to values for weighting
@@ -276,8 +275,6 @@ def custom_attention_forward(
             **kwargs,
         )
 
-        # TODO: Move magic number to config
-        
         if value_states.shape[-1] == self.head_dim + 1:
             # During generation, we added an extra dimension to values for weighting
             # We need to remove this dimension from the output
@@ -288,7 +285,6 @@ def custom_attention_forward(
         
         vmax = self._buffers.get(f"vmax_layer_{self.layer_idx}", None).transpose(1, 2)
         vmin = self._buffers.get(f"vmin_layer_{self.layer_idx}", None).transpose(1, 2)
-        ###vbar = self._buffers.get(f"vbar_layer_{self.layer_idx}", None).transpose(1, 2)
 
         if vmax is not None and vmin is not None:
             # Clamp attention output to the running max and min of values
@@ -296,8 +292,6 @@ def custom_attention_forward(
             num_kv_heads = key_states.shape[1]
             vmax = vmax.repeat_interleave(num_attention_heads//num_kv_heads, dim=2).expand(attn_output.shape)
             vmin = vmin.repeat_interleave(num_attention_heads//num_kv_heads, dim=2).expand(attn_output.shape)
-            ###vbar = vbar.repeat_interleave(num_attention_heads//num_kv_heads, dim=2).expand(attn_output.shape)
-            ###attn_output = (attn_output + vbar).clamp(min=vmin, max=vmax) # Disabling vbar centering
             attn_output = (attn_output).clamp(min=vmin, max=vmax)
         
         attn_output = attn_output.reshape(*input_shape, -1).contiguous()
