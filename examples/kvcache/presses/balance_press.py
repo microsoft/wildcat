@@ -4,7 +4,7 @@ from collections.abc import Callable
 from kvpress import BasePress
 
 import math
-from typing import List, Optional, Tuple, Union, Any, Dict
+from typing import Optional, Tuple
 import torch
 
 import types
@@ -20,13 +20,11 @@ class BalanceKVPress(BasePress):
     gamma: float = 4.
     temp: float = 1.
     beta: float = 0.
-    itrs: int = 2 
+    compression_ratio: float = 0.5  # Warning: this is the fraction of points NOT kept
     block_size: int = 256
     window_size: int = 32
     sink_size: int = 32  
 
-    # Warning: currently not used: itrs determines the compression ratio
-    compression_ratio = 0.5
     # def __post_init__(self):
     #     """Initialize after dataclass creation."""
     #     pass # Store weights per layer
@@ -59,10 +57,13 @@ class BalanceKVPress(BasePress):
         gamma = self.gamma
         temp = self.temp
         beta = self.beta
-        itrs = self.itrs
+        compression_ratio = self.compression_ratio
         block_size = self.block_size
         window_size = self.window_size
         sink_size = self.sink_size
+
+        # determine the number of halving iterations needed to achieve the desired compression ratio
+        itrs = math.ceil(-math.log2(1 - compression_ratio))
 
         k_compressed = keys[..., sink_size:-window_size, :]
         v_compressed = values[..., sink_size:-window_size, :]
@@ -318,8 +319,6 @@ if __name__ == "__main__":
 
     model_name = "Qwen/Qwen2.5-7B-Instruct"
     device = "cuda:1"
-
-
     pipe = pipeline("kv-press-text-generation", model=model_name, device=device)
 
     try:
@@ -330,8 +329,6 @@ if __name__ == "__main__":
     except FileNotFoundError:
         context = """Machine learning is a subset of artificial intelligence that enables computers to learn and improve from experience without being explicitly programmed. It has applications in many fields including computer vision, natural language processing, and robotics."""
         question = "What is machine learning and what are its applications?"
-
-
 
     press = BalanceKV()
 

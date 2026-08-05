@@ -4,7 +4,7 @@ from collections.abc import Callable
 from kvpress import BasePress
 
 import math
-from typing import List, Optional, Tuple, Union, Any, Dict
+from typing import Optional, Tuple
 import torch
 
 import types
@@ -19,13 +19,10 @@ class UniformPress(BasePress):
     Uniform cache compression: after preserving sink and window tokens, uniformly subsample the remaining tokens.
     """
     rng: torch.Generator = torch.Generator('cuda')
-    itrs: int = 2 
+    compression_ratio: float = 0.5 # Warning: this is the fraction of points NOT kept
     block_size: int = 256
     window_size: int = 32
-    sink_size: int = 32  
-
-    # Warning: currently not used: itrs determines the compression ratio
-    compression_ratio = 0.5
+    sink_size: int = 32      
 
     def compress(
         self,
@@ -51,10 +48,13 @@ class UniformPress(BasePress):
             compressed_keys, compressed_values
         """
         rng = self.rng
-        itrs = self.itrs
+        compression_ratio = self.compression_ratio
         block_size = self.block_size
         window_size = self.window_size
         sink_size = self.sink_size
+    
+        # determine the number of halving iterations needed to achieve the desired compression ratio
+        itrs = math.ceil(-math.log2(1 - compression_ratio))
       
         k_compressed = keys[..., sink_size:-window_size, :]
         v_compressed = values[..., sink_size:-window_size, :]
@@ -193,7 +193,6 @@ def custom_attention_forward(
         **kwargs,
     ) -> tuple[torch.Tensor, Optional[torch.Tensor]]:
         
-
         input_shape = hidden_states.shape[:-1]
         hidden_shape = (*input_shape, -1, self.head_dim)
 

@@ -2,8 +2,7 @@ from collections.abc import Callable
 import torch
 
 from kvpress import BasePress
-import re
-from typing import Optional, Dict, Any, Tuple
+from typing import Optional, Tuple
 from dataclasses import dataclass
 import types
 
@@ -76,14 +75,15 @@ class CompressKVPress(BasePress):
         
         target_N_in = (N-sink_size-window_size)
         target_r = int(math.floor(target_N_in * (1-self.compression_ratio)))
-        bins = target_r // bin_r
+        actual_bin_r = min(bin_r, target_r) 
+        bins = target_r // actual_bin_r
         bin_N = target_N_in // bins
         N_in = bins * bin_N
         window_size = window_size + target_N_in - N_in
 
         if False:
-            # To gain insight about the effective compression ratio
-            total_kept = sink_size + window_size + bins*bin_r
+            # Print the fraction of tokens preserved
+            total_kept = sink_size + window_size + bins*actual_bin_r
             print(f"frac_kept: {total_kept/N}", flush = True)
 
         # Compression routine
@@ -109,7 +109,7 @@ class CompressKVPress(BasePress):
                 keys,
                 values,
                 attentions,
-                r=bin_r,
+                r=actual_bin_r,
                 kwargs=kwargs
             )
         
@@ -234,7 +234,7 @@ def custom_attention_forward(
                                                                      torch.amax(value_states, dim=-2, keepdim=True))
             self._buffers[f"vmin_layer_{layer_idx}"] = torch.minimum(self._buffers[f"vmin_layer_{layer_idx}"], 
                                                                      torch.amin(value_states, dim=-2, keepdim=True))
-            
+
         values_shape = value_states.shape
         if cache_position[-1] > query_states.shape[-2]:
             # After prefilling, concat ones vector to values for weighting
@@ -274,7 +274,7 @@ def custom_attention_forward(
             sliding_window=self.sliding_window,  # main diff with Llama
             **kwargs,
         )
-
+        
         if value_states.shape[-1] == self.head_dim + 1:
             # During generation, we added an extra dimension to values for weighting
             # We need to remove this dimension from the output
