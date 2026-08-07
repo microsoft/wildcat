@@ -8,10 +8,10 @@ Usage:
 
 The --error flag runs the max-entry error sweep instead of the timing benchmark.
 """
-
 import argparse
 import torch
 import triton
+import os
 
 
 from flash_attn import flash_attn_func as flash_attn_cuda
@@ -162,8 +162,6 @@ def run_param_sweep(seq_lens, batch_size, head_size, dim, n_warmup=3,
 
 
 def benchmarking_table(args, output_file="results/results.txt"):
-    import os
-
     seq_lens = [2**i for i in range(10, args.log_2_max_len)]
     batch_size = args.batch_size
     head_size  = args.head_size
@@ -253,16 +251,20 @@ def get_arguments():
                         help="Sweep over (r, num_bins) pairs and report max-entry error")
     parser.add_argument("--param_sweep_out", type=str, default="results/param_sweep_results.txt",
                         help="Output file for --param_sweep results")
+    parser.add_argument("--seed", type=int, default=12345,
+                        help="Random seed for reproducibility")
     return parser.parse_args()
 
 
 def main():
+    os.makedirs("results", exist_ok=True)
     args = get_arguments()
     for k, v in vars(args).items():
         print(f"  {k:<14}: {v}")
     print()
 
-    seq_lens = [2**i for i in range(10, 15)]
+    torch.manual_seed(args.seed)
+    seq_lens = [2**i for i in range(10, args.log_2_max_len)]
 
     batch_size = args.batch_size
     head_size  = args.head_size
