@@ -92,11 +92,11 @@ class PerformerSelfAttn(nn.Module):
         value = value.unsqueeze(0).transpose(1,2)
         try:
             att = self.attn(query=query, key=key, value=value)
-            assert not torch.isnan(att).any()
+            assert not att.isnan().any() and not att.isinf().any()
         except AssertionError:
             # Casting the higher precision usually fixes the NaN issue
             att = self.attn(query=query.double(), key=key.double(), value=value.double())
-            # Patch NaN entries with zeros
+            # Patch NaN and Inf entries with zeros
             att = torch.nan_to_num(att, nan=0.0, posinf=1e20, neginf=-1e20)
         return att.squeeze(0).transpose(1,2)
 
