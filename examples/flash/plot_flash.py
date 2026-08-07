@@ -175,7 +175,13 @@ def main() -> None:
     ax_left.set_xticklabels([f"{n // 1024}k" for n in seq_lens], fontsize=tick_font_size)
     ax_left.set_xlabel(r"Sequence length $n$", fontsize=label_font_size)
     ax_left.set_ylabel("Speed-up", color=left_color, fontsize=label_font_size)
-    ax_right.set_ylabel("Error", color=right_color, fontsize=label_font_size)
+    ax_right.set_ylabel(
+        "Error",
+        color=right_color,
+        fontsize=label_font_size,
+        rotation=270,
+        labelpad=25,
+    )
     ax_left.tick_params(axis="x", labelsize=tick_font_size)
     ax_left.tick_params(axis="y", labelcolor=left_color, labelsize=tick_font_size)
     ax_right.tick_params(axis="y", labelcolor=right_color, labelsize=tick_font_size)
