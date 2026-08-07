@@ -104,7 +104,7 @@ def format_mean_std(values, multiplier=1.0, decimals=2):
 
 
 def bold_mean_in_latex(mean_std_str):
-    """Bold the mean and std in $\mu \pm \sigma$, bold $< number$, or bold $X.XX\times$."""
+    r"""Bold the mean and std in $\mu \pm \sigma$, bold $< number$, or bold $X.XX\times$."""
     if not mean_std_str or mean_std_str == "--":
         return mean_std_str
     import re
@@ -175,6 +175,7 @@ def generate_latex_table(fid_results, runtime_results, seeds):
             is_str = "$0.00 \\pm 0.00$"
         elif exact_is_scores and algo_is_scores and len(exact_is_scores) == len(algo_is_scores):
             degradations = (np.array(exact_is_scores) - np.array(algo_is_scores)) / np.array(exact_is_scores) * 100
+            print(f"degradations for {attention_key_actual}:\n {exact_is_scores}\n {algo_is_scores}\n {degradations}")
             deg_mean = np.mean(degradations)
             deg_std = np.std(degradations, ddof=1) if len(degradations) > 1 else 0.0
             is_str = f"${deg_mean:.2f} \\pm {deg_std:.2f}$"
