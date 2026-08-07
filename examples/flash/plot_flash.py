@@ -146,6 +146,8 @@ def main() -> None:
             "No overlapping sequence lengths between flash and selected wildcat rows."
         )
 
+    print(f"speed-ups: {speedups}")
+    print(f"errors: {errors}")
     fig, ax_left = plt.subplots(figsize=(8.4, 5.2))
     ax_right = ax_left.twinx()
 
