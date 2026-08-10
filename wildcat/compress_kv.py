@@ -117,7 +117,11 @@ def compress(
 
     return compress_kv(keys, values, r, scale)
 
-RHO_2 = 3.94582
+
+
+# Two times the constant rho_0 = sqrt(1+exp(2W_0(2/e^2)+2))
+# up to machine precision
+TWO_RHO_0 = 6.383202050647408
 def find_kernel_temperature(
         scale,
         q_scale,
@@ -136,6 +140,11 @@ def find_kernel_temperature(
     Returns: tau (torch.Tensor): shape (batch_dims, 1)
     """
 
-    tau = torch.sqrt(k_scale/q_scale * RHO_2)
+    if phi is not None:
+        N = N*phi**2
+
+    b = math.log(N)/(scale*q_scale*k_scale) + 2.
+    upper = b/(2*lambert_w_circ_exp((b/TWO_RHO_0).log()))
+    tau = torch.sqrt(k_scale/q_scale * upper)
 
     return tau
