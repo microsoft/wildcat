@@ -58,7 +58,7 @@ pillow==12.2.0
 propcache==0.3.2
 protobuf==5.29.6
 psutil==7.0.0
-pyarrow==21.0.0
+pyarrow==23.0.1
 pycparser==2.23
 pyparsing==3.2.4
 python-dateutil==2.9.0.post0
